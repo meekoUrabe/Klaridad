@@ -5,6 +5,7 @@
 @endsection
 
 @section('main')
+<a href="{{ route('account.login') }}">Login</a>
 <h1>Main</h1>
 @endsection
 
