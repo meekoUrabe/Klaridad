@@ -4,62 +4,64 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function login(Request $request)
     {
-        //
+        return view('account.login');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function post_login(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'phone_number' => 'required|string',
+            'password' => 'required|string'
+        ]);
+
+        $user = User::where('phone_number', $validated['phone_number'])->first();
+
+        if (!Hash::check($validated['password'], $user['password']))
+            return back()->with('error', 'Wrong credentials');
+
+        Auth::login($user);
+
+        // new session
+        $request->session()->regenerate();
+
+        return redirect()->route('home');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function signup(Request $request)
     {
-        //
+        return view('account.signup');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
+    public function post_signup(Request $request)
     {
-        //
-    }
+        $validated = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone_number' => 'required|string',
+            'password' => 'required|string'
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        //
-    }
+        return DB::transaction(function () use ($validated) {
+            $user = User::create([
+                'user_role_id' => 1,
+                'first_name' => $validated['first_name'],
+                'last_name' => $validated['last_name'],
+                'phone_number' => $validated['phone_number'],
+                'password' => bcrypt($validated['password'])
+            ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
+            if ($user->wasRecentlyCreated)
+                return back()->with('success', 'Account created');
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
+            return back()->with('error', 'Something went wrong');
+        });
     }
 }
