@@ -8,8 +8,8 @@
     @yield('head')
 </head>
 <body>
-    <main>@yield('main')</main>
     <header>@yield('header')</header>
+    <main>@yield('main')</main>
     <footer>@yield('footer')</footer>
 </body>
 @stack('script')

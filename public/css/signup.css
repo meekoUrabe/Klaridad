@@ -166,9 +166,7 @@ body {
 
 header {
     width: 100%;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e2e8f0;
+    padding: 10px;
 }
 
 header h1 {

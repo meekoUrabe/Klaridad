@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label for="createPass">Create Password</label>
                 <input type="password" class="form-input" id="createPass" name="password" placeholder="Create Password" required>
-                <label for="createPass">Confir  m Password</label>
+                <label for="createPass">Confirm Password</label>
                 <input type="password" class="form-input" id="confirmPass" name="confirm_password" placeholder="Confirm Password" required>
             </div>
         </div>
