@@ -2,10 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 // folder
 Route::prefix('account')->group(function ()
