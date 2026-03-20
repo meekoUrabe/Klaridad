@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barangay;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $barangay = Barangay::all();
+        return view('account.signup', compact('barangay'));
     }
 
     /**
