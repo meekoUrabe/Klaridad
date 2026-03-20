@@ -10,7 +10,7 @@
 @endsection
 
 @section('main')
-    
+    <x-sidebar></x-sidebar>
     <section class = "header1">
         <h1>Project Feed</h1>
         <p>View barangay government projects in your area</p>

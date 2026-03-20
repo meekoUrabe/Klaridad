@@ -11,7 +11,7 @@
     </div>
 
     <hr class="divider" style="margin-top: 16px;" />
-
+    <x-nav></x-nav>
     <!-- Nav Menu -->
     {{-- <nav>
       <ul class="nav-menu">
