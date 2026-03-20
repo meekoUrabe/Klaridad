@@ -55,6 +55,45 @@
                                 @foreach ($category as $c)
                                     <option value="{{ $c->category_id }}">{{ $c->name }}</option>
                                 @endforeach
+
+                                
+                                <!-- // Inside your reports migration
+                                $table->enum('category', [
+                                    'all-categories',
+                                    'infrastructure',
+                                    'corruption',
+                                    'public-safety',
+                                    'environment',
+                                    'other',
+                                ])->default('all-categories');-->
+
+                                <!-- 
+                                // database/seeders/CategorySeeder.php
+
+                                public function run(): void
+                                {
+                                    $categories = [
+                                        ['name' => 'All Categories', 'slug' => 'all-categories'],
+                                        ['name' => 'Infrastructure',  'slug' => 'infrastructure'],
+                                        ['name' => 'Corruption',      'slug' => 'corruption'],
+                                        ['name' => 'Public Safety',   'slug' => 'public-safety'],
+                                        ['name' => 'Environment',     'slug' => 'environment'],
+                                        ['name' => 'Other',           'slug' => 'other'],
+                                    ];
+
+                                    DB::table('categories')->insert($categories);
+                                }
+                                -->
+
+                                <!-- 
+                                    Schema::create('categories', function (Blueprint $table) {
+                                    $table->id();
+                                    $table->string('name');        // "Infrastructure", "Corruption", etc.
+                                    $table->string('slug');        // "infrastructure", "public-safety", etc.
+                                    $table->timestamps();
+                                });
+                                -->
+
                             </select>
                         </div>
                     </div>
