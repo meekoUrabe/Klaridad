@@ -1,17 +1,19 @@
-@extends('template.layout')
+ @extends('template.layout')
 
 
 @section('head')
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Profile - Zamboanga City Governance Platform</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background: #f3f4f6; color: #333; }
-
+ 
     .container { max-width: 780px; margin: 40px auto; padding: 0 20px; }
-
+ 
     .page-title h1 { font-size: 28px; font-weight: bold; }
     .page-title p { color: #6b7280; margin-top: 4px; }
-
+ 
     .profile-card {
       background: #2563eb;
       border-radius: 12px;
@@ -51,7 +53,10 @@
       cursor: pointer;
       display: flex; align-items: center; gap: 6px;
     }
-
+    .edit-btn.hidden {
+      display: none;
+    }
+ 
     .form-section {
       background: white;
       border-radius: 12px;
@@ -76,12 +81,54 @@
       color: #6b7280;
       background: #f9fafb;
     }
+    .form-group .static-value {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #6b7280;
+      background: #f9fafb;
+    }
     .form-group .hint {
       font-size: 12px;
       color: #9ca3af;
       margin-top: 4px;
     }
 
+    .action-buttons {
+      display: none;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .action-buttons.show {
+      display: flex;
+    }
+    .action-buttons button {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .action-buttons .save-btn {
+      background: #2563eb;
+      color: white;
+    }
+    .action-buttons .save-btn:hover {
+      background: #1d4ed8;
+    }
+    .action-buttons .cancel-btn {
+      background: #e5e7eb;
+      color: #6b7280;
+    }
+    .action-buttons .cancel-btn:hover {
+      background: #d1d5db;
+    }
+ 
     .help-btn {
       position: fixed;
       bottom: 24px; right: 24px;
@@ -93,11 +140,123 @@
       font-size: 20px;
       cursor: pointer;
     }
+ 
+    .account-info-card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px 30px;
+      margin-top: 20px;
+      border: 1px solid #e5e7eb;
+    }
+    .account-info-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 20px;
+    }
+    .account-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 16px;
+    }
+    .account-info-item label {
+      display: block;
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+    .account-info-item .value {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+    }
+    .account-info-item .value.active {
+      color: #16a34a;
+    }
+    .account-info-item .value.verified {
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+ 
+    @media (max-width: 480px) {
+      .account-info-card { padding: 16px; margin-top: 14px; }
+      .account-info-grid { gap: 14px 12px; }
+      .account-info-item .value { font-size: 14px; }
+    }
+ 
+ 
+    @media (max-width: 640px) {
+      .container { max-width: 100%; padding: 0 16px; margin: 20px auto; }
+ 
+      .page-title h1 { font-size: 24px; }
+ 
+      .profile-card {
+        flex-direction: column;
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+        gap: 16px;
+      }
+      .profile-card .left { flex-direction: column; gap: 12px; }
+ 
+      .avatar { width: 64px; height: 64px; }
+      .avatar svg { width: 32px; height: 32px; }
+ 
+      .profile-info h2 { font-size: 20px; }
+      .badges { justify-content: center; }
+ 
+      .edit-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+      }
+ 
+      .form-section { padding: 20px; margin-top: 16px; gap: 16px; }
+      
+      .form-group input,
+      .form-group select {
+        padding: 14px 12px;
+        font-size: 16px;
+      }
+ 
+      .help-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+      }
+    }
+ 
+    @media (max-width: 480px) {
+      .container { padding: 0 12px; margin: 16px auto; }
+ 
+      .page-title h1 { font-size: 20px; }
+      .page-title p { font-size: 14px; }
+ 
+      .profile-card { padding: 16px; gap: 12px; }
+      .profile-card .left { gap: 10px; }
+ 
+      .avatar { width: 56px; height: 56px; }
+ 
+      .profile-info h2 { font-size: 18px; }
+      .badges { gap: 6px; }
+      .badge { font-size: 12px; padding: 3px 10px; }
+      .member-since { font-size: 12px; }
+ 
+      .form-section { padding: 16px; gap: 12px; }
+ 
+      .form-group label { font-size: 14px; margin-bottom: 6px; }
+      .form-group .hint { font-size: 11px; }
+    }
   </style>
     
 @endsection
 
 @section('main')
+
   <div class="container">
 
     <div class="page-title">
@@ -144,11 +303,7 @@
 
       <div class="form-group">
         <label>Barangay</label>
-        <select disabled>
-          <option>Tetuan</option>
-          <option>Canelar</option>
-          <option>Talon-Talon</option>
-        </select>
+        <div class="static-value">Tetuan</div>
       </div>
 
       <div class="form-group">
@@ -156,6 +311,35 @@
         <input type="text" placeholder="Enter your address" disabled />
       </div>
 
+      <div class="action-buttons">
+        <button class="save-btn">✓ Save Changes</button>
+        <button class="cancel-btn">✕ Cancel</button>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>Account Information</h3>
+      <div class="account-info-grid">
+        <div class="account-info-item">
+          <label>Account Type</label>
+          <div class="value">Citizen</div>
+        </div>
+        <div class="account-info-item">
+          <label>Member Since</label>
+          <div class="value">January 15, 2024</div>
+        </div>
+        <div class="account-info-item">
+          <label>Account Status</label>
+          <div class="value active">Active</div>
+        </div>
+        <div class="account-info-item">
+          <label>Verification Status</label>
+          <div class="value verified">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+            Verified
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <button class="help-btn">?</button>
@@ -163,28 +347,59 @@
   <script>
     // Get the edit button and all form inputs
     const editBtn = document.querySelector('.edit-btn');
-    const formInputs = document.querySelectorAll('.form-section input, .form-section select');
+    const formInputs = document.querySelectorAll('.form-section:first-of-type input');
+    const actionButtons = document.querySelector('.action-buttons');
+    const saveBtn = document.querySelector('.save-btn');
+    const cancelBtn = document.querySelector('.cancel-btn');
     let isEditMode = false;
 
     // Add click listener to edit button
     editBtn.addEventListener('click', function() {
-      isEditMode = !isEditMode;
+      isEditMode = true;
+      
+      // Hide edit button
+      editBtn.classList.add('hidden');
       
       // Toggle disabled state for all inputs
       formInputs.forEach(input => {
-        input.disabled = !isEditMode;
+        input.disabled = false;
       });
 
-      // Update button text and appearance
-      if (isEditMode) {
-        editBtn.textContent = '✓ Save Changes';
-        editBtn.style.background = '#10b981';
-      } else {
-        editBtn.textContent = '✏️ Edit Profile';
-        editBtn.style.background = 'white';
-        editBtn.style.color = '#2563eb';
-      }
+      // Show action buttons
+      actionButtons.classList.add('show');
+    });
+
+    // Save button
+    saveBtn.addEventListener('click', function() {
+      isEditMode = false;
+      
+      // Show edit button
+      editBtn.classList.remove('hidden');
+      
+      // Toggle disabled state for all inputs
+      formInputs.forEach(input => {
+        input.disabled = true;
+      });
+
+      // Hide action buttons
+      actionButtons.classList.remove('show');
+    });
+
+    // Cancel button
+    cancelBtn.addEventListener('click', function() {
+      isEditMode = false;
+      
+      // Show edit button
+      editBtn.classList.remove('hidden');
+      
+      // Toggle disabled state for all inputs
+      formInputs.forEach(input => {
+        input.disabled = true;
+      });
+
+      // Hide action buttons
+      actionButtons.classList.remove('show');
     });
   </script>
-
+    
 @endsection
