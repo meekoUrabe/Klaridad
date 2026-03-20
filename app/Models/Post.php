@@ -13,6 +13,9 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'sector_id',
-        'message'
+        'post_s_id',
+        'likes',
+        'message',
+        'anonymous'
     ];
 }

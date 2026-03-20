@@ -12,6 +12,7 @@ class UserAccess extends Model
 
     protected $fillable = [
         'user_id',
-        'sector_id'
+        'city_id',
+        'barangay_id'
     ];
 }
