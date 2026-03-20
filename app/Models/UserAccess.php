@@ -11,6 +11,10 @@ class UserAccess extends Model
     public $timestamps = false;
 
     protected $fillable = [
+<<<<<<< HEAD
+=======
+        'user_id',
+>>>>>>> 1ec72c2ac4bd98a2919bb4981e0a5eee4550803b
         'city_id',
         'barangay_id'
     ];

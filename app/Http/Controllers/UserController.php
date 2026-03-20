@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Barangay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -37,12 +38,18 @@ class UserController extends Controller
 
     public function signup(Request $request)
     {
+<<<<<<< HEAD
         return view('account.signup');
+=======
+        $barangay = Barangay::all();
+        return view('account.signup', compact('barangay'));
+>>>>>>> 1ec72c2ac4bd98a2919bb4981e0a5eee4550803b
     }
 
     public function post_signup(Request $request)
     {
         $validated = $request->validate([
+<<<<<<< HEAD
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'phone_number' => 'required|string',
@@ -61,6 +68,32 @@ class UserController extends Controller
             if ($user->wasRecentlyCreated)
                 return back()->with('success', 'Account created');
 
+=======
+            'barangay_id' => 'required|int',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone_number' => 'required|string',
+            'password' => 'required|string',
+            'confirm_password' => 'required|string'
+        ]);
+
+        if ($validated['password'] != $validated['confirm_password'])
+            return back()->with('error', 'Different confirm password');
+
+        return DB::transaction(function () use ($validated) {
+            $user = User::create([
+                'user_role_id' => 1,
+                'barangay_id' => $validated['barangay_id'],
+                'first_name' => $validated['first_name'],
+                'last_name' => $validated['last_name'],
+                'phone_number' => $validated['phone_number'],
+                'password' => bcrypt($validated['confirm_password'])
+            ]);
+
+            if ($user->wasRecentlyCreated)
+                return back()->with('success', 'Account created');
+
+>>>>>>> 1ec72c2ac4bd98a2919bb4981e0a5eee4550803b
             return back()->with('error', 'Something went wrong');
         });
     }

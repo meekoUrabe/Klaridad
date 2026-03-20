@@ -12,6 +12,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'user_role_id',
+        'barangay_id',
         'first_name',
         'last_name',
         'phone_number',
@@ -26,7 +27,11 @@ class User extends Authenticatable
     public function userAccess()
     {
         return $this->belongsTo(UserAccess::class, 'user_id', 'user_id');
+<<<<<<< HEAD
     }   
+=======
+    }
+>>>>>>> 1ec72c2ac4bd98a2919bb4981e0a5eee4550803b
 
     public function hasRole($role) {
         return $this->userRole?->role == $role;
