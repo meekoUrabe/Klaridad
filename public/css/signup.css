@@ -286,6 +286,9 @@ form {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    color: var(--muted-foreground);
+    font-weight: var(--font-weight-medium);
+    font-size: 12px;
 }
 
 .form-footer i {
