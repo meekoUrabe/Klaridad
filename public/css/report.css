@@ -160,13 +160,19 @@ body {
     text-align: center;
 }
 
-.signup-header {
-    color:var(--button-primary-bg-active)
+.submit-report-header {
+    color:var(--button-primary-bg-active);
+}
+
+.submit-report-header p {
+    color: var(--button-ghost-text)
 }
 
 header {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 header h1 {
@@ -179,12 +185,25 @@ header p {
     color: #64748b;
 }
 
+.topbar__brand h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+    color:var(--button-primary-bg-active);
+}
+
+.topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: min(100%, 450px);
-    max-width: 450px;
+    width: min(100%, 600px);
+    max-width: 600px;
     flex: 1;
     background: white;
     border: 1px solid #e2e8f0;
@@ -228,12 +247,19 @@ form {
     flex-direction: column;
     gap: 8px;
     text-align: start;
+    padding: 0 20px;
 }
 
 .form-group label {
     font-weight: 500;
     color: var(--primary);
     font-size: 0.95rem;
+}
+
+.form-group .upload {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form-input {
@@ -247,6 +273,33 @@ form {
     width: 100%;
     max-width: 100%;
 }
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+
+  border: 2px dashed #ccc;   /* dashed border = the key visual */
+  border-radius: 12px;
+  background: #f5f7fa;
+  cursor: pointer;            /* makes it feel clickable */
+}
+
+.upload-box input[type="file"] {
+    opacity: 0.7;
+}
+
+.upload-box span {
+    font-size: 40px;
+}
+
+.upload-box:hover {
+  border-color: #378ADD;
+  background: #e8f3ff;
+}
+
 
 .input-with-icon {
     position: relative;
@@ -275,20 +328,11 @@ form {
     color: #94a3b8;
 }
 
-.helper-text {
-    margin: 0;
-    font-size: 0.85rem;
-    color: #64748b;
-}
-
 .form-footer {
     padding: 20px 32px 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    color: var(--muted-foreground);
-    font-weight: var(--font-weight-medium);
-    font-size: 12px;
 }
 
 .form-footer i {
@@ -298,6 +342,89 @@ form {
 
 .form-footer a {
     text-decoration: none;
+}
+
+.report-card {
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    padding: 20px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: none;
+}
+
+.report-card .anonymous{
+    padding: 25px 15px;
+    background: rgba(147, 197, 253, 0.5);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    border-radius: 10px;
+}
+
+.report-card .anonymous p {
+    padding: 5px;    
+}
+
+.report-card .anonymous h4 {
+    display: flex;
+    text-align: start;
+    gap: 5px;
+}
+
+.report-card .anonymous p {
+    display: flex;
+    text-align: start;
+}
+
+.report-card .anonymous span {
+    size: 100px;   
+}
+
+.report-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.report-card__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #0f172a;
+}
+
+.report-card__title i {
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 1.2rem;
+}
+
+.report-card__title span {
+    size: 100px;
+}
+
+.report-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tracker-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.tracker-summary {
+    margin: 0;
+    font-weight: 600;
+    color: #0f172a;
 }
 
 .btn-primary {
@@ -321,6 +448,7 @@ form {
     background-color: var(--button-primary-bg-active);
 }
 
+
 footer {
     width: 100%;
     padding: 20px;
@@ -329,26 +457,6 @@ footer {
     text-align: center;
     color: #64748b;
     font-size: 0.875rem;
-}
-
-.divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 15px 0;
-}
-
-.divider::before,
-.divider::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #ccc;
-}
-
-.divider span {
-    margin: 0 10px;
-    font-weight: bold;
-    color: #555;
 }
 
 @media (max-width: 768px) {
