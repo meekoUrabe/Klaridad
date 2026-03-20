@@ -24,6 +24,10 @@
     <input type="tel" placeholder="☎ 09XX XXX XXXX">
     <p>Enter your 11-digit Philippine mobile number</p>
 
+    <label for=""> Login Password </label>
+    <input type="password" placeholder="Login Password" id="login_password" name="login_password" required>
+    <br>
+
     <button id="btn"> Login with Phone Number</button>
     <h2 class="divider"><span>or</span></h2>
     <button id="btn">Login with <i class="fa-brands fa-google"></i>mail</button>
