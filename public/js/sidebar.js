@@ -28,10 +28,20 @@ function toggleSidebar() {
     });
   });
 
-  // Handle role option clicks
+  // Handle role option clicks with navigation
   document.querySelectorAll('.role-option').forEach(option => {
     option.addEventListener('click', function () {
       const role = this.dataset.role;
+      let redirectUrl = '';
+
+      // Determine redirect URL based on role
+      if (role === 'Citizen') {
+        redirectUrl = '/citizen/dashboard';
+      } else if (role === 'Barangay Official') {
+        redirectUrl = '/barangay/dashboard';
+      } else if (role === 'City Government') {
+        redirectUrl = '/goverment/dashboard';
+      }
 
       // Update label
       document.getElementById('roleLabel').textContent = role;
@@ -47,6 +57,11 @@ function toggleSidebar() {
       // Close dropdown
       document.getElementById('roleDropdown').classList.remove('open');
       document.getElementById('roleSelected').classList.remove('open');
+
+      // Navigate to role-specific page
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      }
     });
   });
 

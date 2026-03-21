@@ -38,3 +38,17 @@ Route::prefix('citizen')->group(function ()
         return view('citizen.profile');
         } )->name('citizen.profile');
 });
+
+Route::prefix('barangay')->group(function ()
+{
+    Route::get('dashboard', function() {
+        return view('barangay.barangay');
+        } )->name('barangay.dashboard');
+});
+
+Route::prefix('goverment')->group(function ()
+{
+    Route::get('dashboard', function() {
+        return view('goverment.goverment');
+        } )->name('goverment.dashboard');
+});

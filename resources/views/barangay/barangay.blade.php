@@ -5,83 +5,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<link rel="stylesheet" href="{{ asset('css/components/sidebar.css') }}">
 <link rel="stylesheet" href="{{ asset('css/barangay/barangay.css') }}">
 <title>Klaridad | Barangay Dashboard</title>
-@endsection
-
-@section('header')
-    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
-    <aside class="sidebar" id="sidebar">
-
-        <button class="close-btn" onclick="closeSidebar()">✕</button>
-
-        <div class="sidebar-top">
-            <div class="brand">
-                <h1>Klaridad</h1>
-                <p>Zamboanga City</p>
-            </div>
-
-            <hr class="divider" style="margin-top: 16px;" />
-
-            <nav>
-                <ul class="nav-menu">
-                    <li>
-                        <a href="{{ url()->current() }}" class="active">
-                            <span class="icon"></span>
-                            Barangay Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('citizen.dashboard') }}">
-                            <span class="icon"></span>
-                            Project Feed
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('citizen.tracker') }}">
-                            <span class="icon"></span>
-                            Track Reports
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <div class="sidebar-bottom">
-            <div class="role-switcher-wrapper">
-                <div class="role-dropdown" id="roleDropdown">
-                    <div class="role-option" data-role="Citizen">
-                        Citizen
-                    </div>
-                    <div class="role-option selected" data-role="Barangay Official">
-                        Barangay Official <span class="checkmark">✓</span>
-                    </div>
-                    <div class="role-option" data-role="City Government">
-                        City Government
-                    </div>
-                </div>
-
-                <div class="role-selected" id="roleSelected" onclick="toggleDropdown()">
-                    <span id="roleLabel">Barangay Official</span>
-                    <span class="arrow">▾</span>
-                </div>
-            </div>
-
-            <button class="logout-btn">
-                ↪ Logout
-            </button>
-        </div>
-
-    </aside>
 @endsection
 
 @section('main')
 
 <div class="right-panel">
     <nav class="navbar">
-        <button class="burger-btn" id="burgerBtn" onclick="toggleSidebar()">☰</button>
         <span class="nav-brand">Zamboanga City Governance Platform</span>
         <a href="{{ url()->current() }}">
             <div class="nav-profile">
@@ -147,7 +78,6 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('js/sidebar.js') }}"></script>
 <script src="{{ asset('js/barangay/barangay.js') }}"></script>
 @endpush
     
