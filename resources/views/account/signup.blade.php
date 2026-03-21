@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label for="createPass">Create Password</label>
                 <input type="password" class="form-input" id="createPass" name="password" placeholder="Create Password" required>
-                <label for="createPass">Confir  m Password</label>
+                <label for="createPass">Confirm Password</label>
                 <input type="password" class="form-input" id="confirmPass" name="confirm_password" placeholder="Confirm Password" required>
             </div>
         </div>
@@ -69,7 +69,6 @@
             <button type="submit" class="btn-primary">Sign Up</button>
                 <h2 class="divider"><span>or</span></h2>
             <button type="submit" class="btn-primary">Sign Up with<i class="fa-brands fa-google"></i> mail</button>
-            <br>
             <p> Already have an account? <a href="{{ route('account.login') }}"> Login here</a> </p>
             <br>
             <p> By signing up, you agree to use this platform for community governance and transparency. </p>

@@ -7,11 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class UserAccess extends Model
 {
     protected $table = "user_access";
-    protected $primaryKey = "user_access_id";
+    protected $primaryKey = "user_id";
     public $timestamps = false;
 
     protected $fillable = [
+<<<<<<< HEAD
+=======
         'user_id',
+<<<<<<< HEAD
+=======
+>>>>>>> 1ec72c2ac4bd98a2919bb4981e0a5eee4550803b
+>>>>>>> origin/Aki-Citizen
         'city_id',
         'barangay_id'
     ];

@@ -17,12 +17,16 @@
 @endsection
 
 @section('main')
-<form class="login-box" meth>
+<form class="login-box">
     <h1>Login to Your Account</h1>
     <div class="main-loginbox">
     <label for=""> Phone Number</label>
-    <input type="tel" placeholder="☎ 09XX XXX XXXX">
+    <input type="tel" placeholder="☎ 09XX XXX XXXX" maxlength="11">
     <p>Enter your 11-digit Philippine mobile number</p>
+    
+    <label for=""> Login Password </label>
+    <input type="password" placeholder="Login Password" id="login_password" name="login_password" required>
+    <br>
 
     <label for=""> Login Password </label>
     <input type="password" placeholder="Login Password" id="login_password" name="login_password" required>
