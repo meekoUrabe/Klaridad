@@ -27,7 +27,7 @@
           </a>
         </li>
         <li>
-          <a href="/track-reports" @if(request()->is('track-reports')) class="active" @endif>
+          <a href="{{ route('citizen.tracker') }}" @if(request()->routeIs('citizen.tracker')) class="active" @endif>
             <span class="icon"></span>
             Track Reports
           </a>

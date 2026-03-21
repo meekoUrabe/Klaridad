@@ -27,15 +27,7 @@ class User extends Authenticatable
     public function userAccess()
     {
         return $this->belongsTo(UserAccess::class, 'user_id', 'user_id');
-<<<<<<< HEAD
     }
-=======
-<<<<<<< HEAD
-    }   
-=======
-    }
->>>>>>> 1ec72c2ac4bd98a2919bb4981e0a5eee4550803b
->>>>>>> origin/Aki-Citizen
 
     public function hasRole($role) {
         return $this->userRole?->role == $role;
