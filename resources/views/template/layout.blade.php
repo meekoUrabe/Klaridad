@@ -4,24 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Klaridad</title>
   <link rel="stylesheet" href="{{ asset('css/variables.css') }}">
   @yield('head')
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { height: 100%; }
-    body { height: 100vh; display: flex; flex-direction: row; font-family: 'Inter', sans-serif; overflow: hidden; }
+    html, body { min-height: 100%; }
+    body { min-height: 100vh; display: flex; flex-direction: row; font-family: 'Inter', sans-serif; overflow-x: hidden; overflow-y: auto; }
     header { display: flex; flex-shrink: 0; }
-    main { display: flex; flex-direction: column; flex: 1; height: 100%; }
-    footer { flex-shrink: 0; }
+    main { display: flex; flex-direction: column; flex: 1; }
+    .app-footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 12px 16px;
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      color: #6b7280;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
   <header>@yield('header')</header>
   <main>
     @yield('main')
+    <footer class="app-footer">
+      @hasSection('footer')
+        @yield('footer')
+      @else
+        <p>© {{ date('Y') }} Klaridad - TabiDev Studios</p>
+      @endif
+    </footer>
   </main>
-  <footer>@yield('footer')</footer>
+
   @stack('script')
 </body>
 </html>

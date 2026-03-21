@@ -29,4 +29,12 @@ Route::prefix('citizen')->group(function ()
     Route::get('submit_report', function() {
         return view('citizen.submit_report');
         } )->name('citizen.submit_report');
+
+    Route::get('tracker', function() {
+        return view('citizen.tracker');
+        } )->name('citizen.tracker');
+
+    Route::get('profile', function() {
+        return view('citizen.profile');
+        } )->name('citizen.profile');
 });

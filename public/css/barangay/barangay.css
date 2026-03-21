@@ -1,0 +1,443 @@
+:root {
+  /* Font Settings */
+  --font-size: 16px;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  /* Border Radius - Klaridad Design System */
+  --radius: 0.625rem; /* 10px - Default radius */
+  --radius-sm: 0.375rem; /* 6px - Small elements */
+  --radius-md: 0.5rem; /* 8px - Medium elements */
+  --radius-lg: 0.75rem; /* 12px - Large cards */
+  --radius-xl: 1rem; /* 16px - Extra large containers */
+  --radius-full: 9999px; /* Fully rounded (pills, avatars) */
+
+  /* Border Width */
+  --border-width: 1px; /* Default border */
+  --border-width-thin: 1px; /* Thin border */
+  --border-width-medium: 2px; /* Medium border */
+  --border-width-thick: 3px; /* Thick border */
+
+  /* Border Colors - Klaridad Theme */
+  --border-light: #e2e8f0; /* Slate-200 - Light dividers */
+  --border-default: #cbd5e1; /* Slate-300 - Default borders */
+  --border-medium: #94a3b8; /* Slate-400 - Medium emphasis */
+  --border-dark: #64748b; /* Slate-500 - Dark borders */
+  --border-primary: #3b82f6; /* Blue-500 - Primary/Active borders */
+  --border-primary-light: #93c5fd; /* Blue-300 - Light primary borders */
+  --border-success: #22c55e; /* Green-500 - Success states */
+  --border-warning: #f59e0b; /* Amber-500 - Warning states */
+  --border-danger: #ef4444; /* Red-500 - Danger/Error states */
+
+  /* Box Shadow - Klaridad Elevation System */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 5px 10px 5px rgba(0, 0, 0, 0.055);
+
+  /* Spacing System - Consistent gaps and padding */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+
+  /* Button Variables - Klaridad Design System */
+  /* Primary Button (Blue) */
+  --button-primary-bg: #2563eb; /* Blue-600 */
+  --button-primary-bg-hover: #1d4ed8; /* Blue-700 */
+  --button-primary-bg-active: #1e40af; /* Blue-800 */
+  --button-primary-text: #ffffff;
+  --button-primary-border: #2563eb;
+
+  /* Secondary Button (Outline) */
+  --button-secondary-bg: transparent;
+  --button-secondary-bg-hover: #f1f5f9; /* Slate-100 */
+  --button-secondary-bg-active: #e2e8f0; /* Slate-200 */
+  --button-secondary-text: #334155; /* Slate-700 */
+  --button-secondary-border: #cbd5e1; /* Slate-300 */
+
+  /* Success Button (Green) */
+  --button-success-bg: #16a34a; /* Green-600 */
+  --button-success-bg-hover: #15803d; /* Green-700 */
+  --button-success-bg-active: #166534; /* Green-800 */
+  --button-success-text: #ffffff;
+  --button-success-border: #16a34a;
+
+  /* Danger Button (Red) */
+  --button-danger-bg: #dc2626; /* Red-600 */
+  --button-danger-bg-hover: #b91c1c; /* Red-700 */
+  --button-danger-bg-active: #991b1b; /* Red-800 */
+  --button-danger-text: #ffffff;
+  --button-danger-border: #dc2626;
+
+  /* Warning Button (Amber) */
+  --button-warning-bg: #d97706; /* Amber-600 */
+  --button-warning-bg-hover: #b45309; /* Amber-700 */
+  --button-warning-bg-active: #92400e; /* Amber-800 */
+  --button-warning-text: #ffffff;
+  --button-warning-border: #d97706;
+
+  /* Ghost Button (Transparent) */
+  --button-ghost-bg: transparent;
+  --button-ghost-bg-hover: #f1f5f9; /* Slate-100 */
+  --button-ghost-bg-active: #e2e8f0; /* Slate-200 */
+  --button-ghost-text: #475569; /* Slate-600 */
+  --button-ghost-border: transparent;
+
+  /* Disabled Button */
+  --button-disabled-bg: #e2e8f0; /* Slate-200 */
+  --button-disabled-text: #94a3b8; /* Slate-400 */
+  --button-disabled-border: #e2e8f0;
+
+  /* Button Sizes */
+  --button-height-sm: 2rem; /* 32px */
+  --button-height-md: 2.5rem; /* 40px */
+  --button-height-lg: 2.75rem; /* 44px */
+  --button-height-xl: 3rem; /* 48px */
+
+  --button-padding-sm: 0.5rem 0.75rem; /* 8px 12px */
+  --button-padding-md: 0.625rem 1rem; /* 10px 16px */
+  --button-padding-lg: 0.75rem 1.5rem; /* 12px 24px */
+  --button-padding-xl: 1rem 2rem; /* 16px 32px */
+
+  --button-radius: var(--radius-md); /* 8px - Default button radius */
+
+  /* Color System */
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --color:#213b8d;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(244, 248, 248);
+}
+
+body h2{
+    font-family: 'Inter', sans-serif;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: var(--font-weight-medium);
+}
+
+footer h1{
+    margin-top: 30px;
+    border-top: 1px solid var(--border);
+    padding: 30px;
+    font-size: 15px;
+    color: var(--muted-foreground);
+    font-weight: var(--font-weight-normal);
+    display: flex;
+    justify-content: center;
+}
+
+.header1{
+    padding: 20px 0px 20px 20px;
+}
+
+.header1 h1{
+    color: var(--color);
+}
+
+.PostProjects{
+    border-radius: var(--radius-md);
+    border-right: 1px solid var(--button-secondary-border);
+    border-bottom: 1px solid var(--button-secondary-border);
+    border-left: 1px solid var(--button-secondary-border);
+    padding: 0px 0px 20px 0px;
+    background-color: white;
+    margin: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.ContainerPosProj{
+    gap: 0px;
+    justify-content: space-between;
+    display: flex;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--button-secondary-border);
+    border-bottom: none ;
+    border-left: none ;
+    border-right: none ;
+    padding: 30px 20px 50px 20px;
+    transition: all 0.2s ease;
+}
+
+@media (max-width: 450px){
+    .ContainerPosProj{
+    gap: 20px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    }
+
+}
+
+.ContainerPosProj h1{
+    font-size: 25px;
+}
+
+.ContainerPosProj button{
+    cursor: pointer;
+    color: white;
+    background-color: var(--button-primary-border);
+    border: none;
+    font-size: 15px;
+    padding: 10px 10px 10px 20px;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease-in-out;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#formBox{
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+#formBox button{
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 17px;
+    color: white;
+    background-color: var(--button-primary-border);
+    height: 70px;
+    width: 800px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+#formBox button:hover{
+    background-color: var(--button-primary-bg-hover);
+}
+
+button:hover{
+    background-color: var(--button-primary-bg-hover);
+}
+
+#Formain{
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    display: flex;
+
+}
+
+#tabs{
+    padding: 10px 0px;
+    width: 500px;
+    transition: all 0.2s ease-in-out;
+}
+
+#tabs input,select{
+    border: 1px solid var(--switch-background);
+    border-radius: var(--radius-md);
+    padding: 15px;
+    width: 500px;
+    transition: all 0.2s ease-in-out;
+}
+
+input,select{
+    margin: 10px 0px 0px 0px;
+}
+
+textarea{
+    border: 1px solid var(--switch-background);
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+#Desc{
+    width: 1020px;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+#Desc p{
+    margin: 0px 0px 10px 0px;
+    width: 200px;
+    justify-content: start;
+    flex-basis:100% ;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+@media (max-width: 1100px){
+    #tabs{
+        width: 380px;
+    }
+
+    #Formain{
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    }
+
+    #tabs input,select{
+        width: 380px;
+    }
+
+    #Desc{
+    width: 780px;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    }
+
+}
+
+@media (max-width: 870px){
+    #tabs{
+        width: 280px;
+    }
+
+    #Formain{
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    }
+
+    #tabs input,select{
+        width: 280px;
+    }
+
+}
+
+@media (max-width: 870px){
+    #tabs{
+        width: 380px;
+    }
+
+    #Formain{
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    }
+
+    #tabs input,select{
+        width: 380px;
+    }
+
+    textarea{
+    width: 400px;
+    padding: 20px;
+    }
+
+    #Desc{
+        align-self: center;
+        width: 400px;
+        justify-content: center;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    #Desc p{
+        width: 200px;
+        justify-content: start;
+        flex-basis:100% ;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+}
+
+@media (max-width: 470px){
+    #tabs{
+        width: 250px;
+    }
+
+    #Formain{
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    }
+
+    #tabs input,select{
+        width: 250px;
+    }
+
+    textarea{
+    width: 300px;
+    padding: 20px;
+    }
+
+    #Desc{
+        align-self: center;
+        width: 250px;
+        justify-content: center;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    #Desc p{
+        width: 200px;
+        justify-content: start;
+        flex-basis:100% ;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+}
