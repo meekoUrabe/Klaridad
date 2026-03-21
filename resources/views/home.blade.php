@@ -6,12 +6,12 @@
 @endsection
 
 @section('main')
-
 @auth
 Welcome {{ auth()->user()->last_name . ', ' . auth()->user()->first_name; }}
 @endauth
 @guest
 <a href="{{ route('account.login') }}">Login</a>
+<a href="{{ route('citizen.dashboard') }}">Dashboard</a>
 @endguest
 <h1>Main</h1>
 @endsection

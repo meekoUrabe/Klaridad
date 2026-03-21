@@ -17,7 +17,7 @@
 @endsection
 
 @section('main')
-<form class="login-box" meth>
+<form class="login-box">
     <h1>Login to Your Account</h1>
     <div class="main-loginbox">
     <label for=""> Phone Number</label>

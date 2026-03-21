@@ -1,5 +1,5 @@
  * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f3f4f6; display: flex; height: 100vh; overflow: hidden; }
+    body { font-family: Arial, sans-serif; background: #f3f4f6; }
 
     .sidebar {
       width: 260px;
