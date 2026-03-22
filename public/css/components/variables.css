@@ -1,95 +1,71 @@
 :root {
-  /* ─────────── FONT FAMILIES ─────────── */
+  /* Typography */
   --font-primary: 'Plus Jakarta Sans', sans-serif;
   --font-secondary: 'DM Sans', sans-serif;
+  --font-main: var(--font-primary);
 
-  /* ─────────── FONT WEIGHTS ─────────── */
+  /* Font Weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
 
-  /* ─────────── PRIMARY COLORS ─────────── */
+  /* Base Colors */
+  --white: #ffffff;
+
+  /* Brand Palette */
   --blue-50: #eff6ff;
   --blue-600: #2563eb;
   --blue-700: #1d4ed8;
   --blue-800: #1e40af;
   --blue-900: #1e3a8a;
-
-  /* ─────────── ACCENT COLORS ─────────── */
   --green-600: #16a34a;
   --green-700: #15803d;
   --purple-600: #9333ea;
   --purple-700: #7e22ce;
-  --orange-600: #ea580c;
-  --red-600: #dc2626;
 
-  /* ─────────── NEUTRAL COLORS (GRAYSCALE) ─────────── */
+  /* Neutral Palette */
+  --slate-50: #f8fafc;
+  --slate-150: #f8f9fa;
   --slate-200: #e2e8f0;
   --slate-300: #cbd5e1;
   --slate-400: #94a3b8;
   --slate-500: #64748b;
   --slate-600: #475569;
-  --slate-800: #1e293b;
   --slate-900: #0f172a;
-  --white: #ffffff;
 
-  /* ─────────── TEXT COLORS ─────────── */
+  /* Text Tokens */
   --text-primary: var(--slate-900);
   --text-secondary: var(--slate-600);
   --text-muted: var(--slate-500);
   --text-light: var(--slate-400);
-  --text-white: #ffffff;
+  --text-white: var(--white);
+  --muted-foreground: var(--text-muted);
 
-  /* ─────────── BACKGROUND COLORS ─────────── */
-  --bg-primary: #ffffff;
+  /* Background Tokens */
+  --bg-primary: var(--white);
   --bg-secondary: var(--slate-50);
   --bg-muted: var(--slate-150);
   --bg-gradient-blue: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-700) 100%);
-  --bg-gradient-light: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
 
-  /* ─────────── BORDER COLORS ─────────── */
+  /* Border Tokens */
   --border-color-light: var(--slate-200);
   --border-color-default: var(--slate-300);
-  --border-color-medium: var(--slate-400);
+  --border-default: var(--border-color-default);
   --border-primary: var(--blue-600);
+  --border: var(--border-color-light);
 
-  /* ─────────── BUTTON STYLES ─────────── */
+  /* Button Tokens */
   --button-primary-bg: var(--blue-600);
   --button-primary-bg-hover: var(--blue-700);
   --button-primary-bg-active: var(--blue-800);
-  --button-primary-text: #ffffff;
-  --button-primary-border: var(--blue-600);
-
-  --button-ghost-bg: transparent;
-  --button-ghost-bg-hover: var(--slate-100);
-  --button-ghost-bg-active: var(--slate-200);
   --button-ghost-text: var(--slate-600);
-  --button-ghost-border: transparent;
 
-  /* ─────────── SPACING ─────────── */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
-
-  /* ─────────── SHADOWS ─────────── */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-  /* ─────────── TRANSITIONS ─────────── */
+  /* Motion */
   --transition-fast: all 0.2s ease-in-out;
 
-  /* ─────────── LEGACY ALIASES (for backward compatibility) ─────────── */
+  /* Legacy Aliases */
   --primary: #030213;
   --color: #213b8d;
-  --border: var(--border-color-light);
-  --radius: var(--radius-md);
 }
