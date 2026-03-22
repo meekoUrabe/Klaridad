@@ -42,8 +42,13 @@
           <h3>Search by Report ID</h3>
           <div class="input-with-icon">
             <i class="fas fa-magnifying-glass"></i>
-            <input type="text" class="searchbar-input" id="searchbar" name="searchbar" placeholder="Enter your report ID (e.g., R20260315001)" required>
-          </div>
+            <input type="text" class="searchbar-input" id="reportid" name="reportid" placeholder="Enter your report ID (e.g., R20260315001)" value="{{ request()->query('id') }}" required>
+            </div>
+            <div class="sidebar-bottom">
+                <button id="search_report" class='logout-btn'>
+                  Search
+                </button>
+            </div>
         </div>
 
         <div class="tracker-card__section">
@@ -64,7 +69,7 @@
               <select class="form-input" id="barangay" name="id">
                 <option value="">All Barangays</option>
                 @foreach ($barangay as $b)
-                    <option value="{{ $b->barangay_id }}" {{ (request()->query('id') == $b->barangay_id) ? 'selected' : ''; }}>{{ $b->name }}</option>
+                    <option value="{{ $b->barangay_id }}" {{ (request()->query('barangay') == $b->barangay_id) ? 'selected' : ''; }}>{{ $b->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -130,11 +135,14 @@
 @push('script')
 <script src="{{ asset('js/sidebar.js') }}"></script>
 <script>
+let report_element = document.getElementById('reportid');
 let barangay_element = document.getElementById('barangay');
 let category_element = document.getElementById('category');
 let status_element = document.getElementById('status');
 
-barangay_element.addEventListener('change', function () { reQuery('id', barangay_element); });
+document.getElementById('search_report').addEventListener('click', function () { reQuery('id', report_element); });
+
+barangay_element.addEventListener('change', function () { reQuery('barangay', barangay_element); });
 category_element.addEventListener('change', function () { reQuery('category', category_element); });
 status_element.addEventListener('change', function () { reQuery('status', status_element); });
 
