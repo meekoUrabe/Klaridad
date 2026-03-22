@@ -132,7 +132,7 @@
         <div class="step-num">1</div>
         <img src="{{ asset('images/create_your_account.png') }}" alt="Create Account" class="step-img" />
         <h3>Create Your Account</h3>
-        <p>Sign up as a Citizen, Barangay Official, or City Government representative. Choose your barangay to get started.</p>
+        <p>Sign up and Choose your barangay to get started.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
