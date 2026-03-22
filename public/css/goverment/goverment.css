@@ -1,19 +1,6 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-    color: #1f2937;
-}
-
-main {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1rem 2rem;
+.main-content {
+    background: var(--bg-secondary);
+    padding: 32px;
 }
 
 .section-head {
@@ -22,15 +9,15 @@ main {
 
 .section1 .section-head h1 {
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    font-weight: 700;
-    color: #0f172a;
+    font-weight: var(--font-weight-bold);
+    color: var(--slate-900);
 }
 
 .section1 .section-head h2,
 .section2 .section-head h3 {
     margin-top: 0.4rem;
-    color: #4b5563;
-    font-weight: 400;
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-normal);
 }
 
 #analytics-container ul {
@@ -42,8 +29,8 @@ main {
 }
 
 .analytics-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color-light);
     border-radius: 14px;
     padding: 1.2rem;
     display: flex;
@@ -54,25 +41,25 @@ main {
 
 .analytics-card__text span {
     font-size: 0.98rem;
-    color: #334155;
-    font-weight: 700;
+    color: var(--text-primary);
+    font-weight: var(--font-weight-bold);
 }
 
 .analytics-card i {
     font-size: 1.3rem;
-    color: #0ea5e9;
+    color: var(--blue-600);
 }
 
 .section2 {
     margin-top: 2rem;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color-light);
     border-radius: 14px;
     padding: 1.2rem;
 }
 
 .section2 .section-head h2 {
-    color: #0f172a;
+    color: var(--slate-900);
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
 }

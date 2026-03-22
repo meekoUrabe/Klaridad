@@ -1,131 +1,95 @@
 :root {
-  /* Font Settings */
-  --font-size: 16px;
-  --font-weight-medium: 500;
+  /* ─────────── FONT FAMILIES ─────────── */
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  --font-secondary: 'DM Sans', sans-serif;
+
+  /* ─────────── FONT WEIGHTS ─────────── */
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 
-  /* Border Radius */
-  --radius: 0.625rem;
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-full: 9999px;
+  /* ─────────── PRIMARY COLORS ─────────── */
+  --blue-50: #eff6ff;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --blue-800: #1e40af;
+  --blue-900: #1e3a8a;
 
-  /* Border Width */
-  --border-width: 1px;
-  --border-width-thin: 1px;
-  --border-width-medium: 2px;
-  --border-width-thick: 3px;
+  /* ─────────── ACCENT COLORS ─────────── */
+  --green-600: #16a34a;
+  --green-700: #15803d;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --orange-600: #ea580c;
+  --red-600: #dc2626;
 
-  /* Border Colors */
-  --border-light: #e2e8f0;
-  --border-default: #cbd5e1;
-  --border-medium: #94a3b8;
-  --border-dark: #64748b;
-  --border-primary: #3b82f6;
-  --border-primary-light: #93c5fd;
-  --border-success: #22c55e;
-  --border-warning: #f59e0b;
-  --border-danger: #ef4444;
+  /* ─────────── NEUTRAL COLORS (GRAYSCALE) ─────────── */
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --white: #ffffff;
 
-  /* Box Shadow */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* ─────────── TEXT COLORS ─────────── */
+  --text-primary: var(--slate-900);
+  --text-secondary: var(--slate-600);
+  --text-muted: var(--slate-500);
+  --text-light: var(--slate-400);
+  --text-white: #ffffff;
 
-  /* Spacing */
+  /* ─────────── BACKGROUND COLORS ─────────── */
+  --bg-primary: #ffffff;
+  --bg-secondary: var(--slate-50);
+  --bg-muted: var(--slate-150);
+  --bg-gradient-blue: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-700) 100%);
+  --bg-gradient-light: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+
+  /* ─────────── BORDER COLORS ─────────── */
+  --border-color-light: var(--slate-200);
+  --border-color-default: var(--slate-300);
+  --border-color-medium: var(--slate-400);
+  --border-primary: var(--blue-600);
+
+  /* ─────────── BUTTON STYLES ─────────── */
+  --button-primary-bg: var(--blue-600);
+  --button-primary-bg-hover: var(--blue-700);
+  --button-primary-bg-active: var(--blue-800);
+  --button-primary-text: #ffffff;
+  --button-primary-border: var(--blue-600);
+
+  --button-ghost-bg: transparent;
+  --button-ghost-bg-hover: var(--slate-100);
+  --button-ghost-bg-active: var(--slate-200);
+  --button-ghost-text: var(--slate-600);
+  --button-ghost-border: transparent;
+
+  /* ─────────── SPACING ─────────── */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
 
-  /* Button Colors */
-  --button-primary-bg: #2563eb;
-  --button-primary-bg-hover: #1d4ed8;
-  --button-primary-bg-active: #1e40af;
-  --button-primary-text: #ffffff;
-  --button-primary-border: #2563eb;
+  /* ─────────── SHADOWS ─────────── */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
-  --button-secondary-bg: transparent;
-  --button-secondary-bg-hover: #f1f5f9;
-  --button-secondary-bg-active: #e2e8f0;
-  --button-secondary-text: #334155;
-  --button-secondary-border: #cbd5e1;
+  /* ─────────── TRANSITIONS ─────────── */
+  --transition-fast: all 0.2s ease-in-out;
 
-  --button-success-bg: #16a34a;
-  --button-success-bg-hover: #15803d;
-  --button-success-bg-active: #166534;
-  --button-success-text: #ffffff;
-  --button-success-border: #16a34a;
-
-  --button-danger-bg: #dc2626;
-  --button-danger-bg-hover: #b91c1c;
-  --button-danger-bg-active: #991b1b;
-  --button-danger-text: #ffffff;
-  --button-danger-border: #dc2626;
-
-  --button-warning-bg: #d97706;
-  --button-warning-bg-hover: #b45309;
-  --button-warning-bg-active: #92400e;
-  --button-warning-text: #ffffff;
-  --button-warning-border: #d97706;
-
-  --button-ghost-bg: transparent;
-  --button-ghost-bg-hover: #f1f5f9;
-  --button-ghost-bg-active: #e2e8f0;
-  --button-ghost-text: #475569;
-  --button-ghost-border: transparent;
-
-  --button-disabled-bg: #e2e8f0;
-  --button-disabled-text: #94a3b8;
-  --button-disabled-border: #e2e8f0;
-
-  /* Button Sizes */
-  --button-height-sm: 2rem;
-  --button-height-md: 2.5rem;
-  --button-height-lg: 2.75rem;
-  --button-height-xl: 3rem;
-
-  --button-padding-sm: 0.5rem 0.75rem;
-  --button-padding-md: 0.625rem 1rem;
-  --button-padding-lg: 0.75rem 1.5rem;
-  --button-padding-xl: 1rem 2rem;
-
-  --button-radius: var(--radius-md);
-
-  /* Color System */
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  /* ─────────── LEGACY ALIASES (for backward compatibility) ─────────── */
   --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
-  --ring: oklch(0.708 0 0);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
   --color: #213b8d;
+  --border: var(--border-color-light);
+  --radius: var(--radius-md);
 }

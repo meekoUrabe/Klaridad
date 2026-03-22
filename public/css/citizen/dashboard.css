@@ -6,12 +6,12 @@
 }
 
 body{
-    font-family: 'Inter', sans-serif;
-    background-color: rgb(244, 248, 248);
+    font-family: var(--font-secondary);
+    background-color: var(--bg-secondary);
 }
 
 body h2{
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-secondary);
     margin: 20px;
     font-size: 20px;
     font-weight: var(--font-weight-medium);
@@ -42,16 +42,16 @@ footer h1{
 /* Filter Design */
 
 .Filter{
-    background-color: white;
+    background-color: var(--bg-primary);
     margin: 20px;
     border-radius: 10px;
-    border: 1px solid var(--border-default);
+    border: 1px solid var(--border-color-default);
     padding: 20px 20px;
 
 }
 
 .Filter h3{
-    background-color: white;
+    background-color: var(--bg-primary);
     font-size: 23px;
     margin: 5px 0px 0px 0px;
     font-weight: var(--font-weight-medium);
@@ -67,10 +67,10 @@ footer h1{
 
 .FilterSelection select{
     border-radius: 5px;
-    border: 1px solid var(--border-default);
+    border: 1px solid var(--border-color-default);
     width: 500px;
     padding: 10px;
-    transition: all 0.1s ease-in-out;
+    transition: var(--transition-fast);
 }
 
 .FilterSelection h4{

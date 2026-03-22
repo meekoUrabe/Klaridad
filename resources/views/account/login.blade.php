@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<link href="{{ asset('css/login.css') }}" rel="stylesheet"/>
+<link href="{{ asset('css/auth/login.css') }}" rel="stylesheet"/>
 <title>Klaridad | Log-in</title>
 <style>
   body { flex-direction: column !important; align-items: center; background: #f8f9fa; }
@@ -32,17 +32,26 @@
 
     <label for="password">Login Password</label>
     <input type="password" placeholder="Login Password" id="password" name="password" required>
+  </div>
 
+  <div class="form-footer">
     <button type="submit" class="btn-auth">Login with Phone Number</button>
     <h2 class="divider"><span>or</span></h2>
     <button type="button" class="btn-auth">Login with <i class="fa-brands fa-google"></i> mail</button>
 
-    <h3>Don't have an account? <a href="{{ route('account.signup') }}">Sign up here</a></h3>
-    <h3>By logging in, you agree to use this platform for community governance and transparency.</h3>
+    <p>Don't have an account? <a href="{{ route('account.signup') }}">Sign up here</a></p>
+    <p>By logging in, you agree to use this platform for community governance and transparency.</p>
   </div>
 </form>
-@endsection
 
-@section('footer')
-  © {{ date('Y') }} Klaridad - Zamboanga City Government
+<!-- TEMPORARY: Quick Access Dashboards (Remove Later) -->
+<div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107; max-width: 400px;">
+  <p style="margin: 0 0 12px 0; font-weight: 600; color: #856404;">⚡ Temporary Debug Links</p>
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <a href="{{ route('citizen.dashboard') }}" style="padding: 10px 12px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; text-align: center; font-size: 14px;">👤 Citizen Dashboard</a>
+    <a href="{{ route('barangay.dashboard') }}" style="padding: 10px 12px; background: #28a745; color: white; text-decoration: none; border-radius: 4px; text-align: center; font-size: 14px;">🏢 Barangay Dashboard</a>
+    <a href="{{ route('goverment.dashboard') }}" style="padding: 10px 12px; background: #6f42c1; color: white; text-decoration: none; border-radius: 4px; text-align: center; font-size: 14px;">🏛️ Government Dashboard</a>
+  </div>
+</div>
+<!-- END TEMPORARY -->
 @endsection

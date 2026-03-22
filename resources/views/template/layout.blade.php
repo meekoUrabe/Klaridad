@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{{ asset('css/variables.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/components/variables.css') }}">
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
   @yield('head')
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,21 +22,30 @@
       color: #6b7280;
       font-size: 13px;
     }
+    .app-footer.app-footer-custom {
+      text-align: initial;
+      padding: 0;
+      border-top: 0;
+      background: transparent;
+      color: inherit;
+      font-size: inherit;
+    }
   </style>
 </head>
 <body>
   <header>@yield('header')</header>
   <main>
     @yield('main')
-    <footer class="app-footer">
+    <footer class="app-footer @hasSection('footer') app-footer-custom @endif">
       @hasSection('footer')
         @yield('footer')
       @else
         <p>© {{ date('Y') }} Klaridad - TabiDev Studios</p>
       @endif
-    </footer>
+  </footer>
   </main>
-
+  
+  
   @stack('script')
 </body>
 </html>

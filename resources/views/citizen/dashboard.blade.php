@@ -11,51 +11,7 @@
 @endsection
 
 @section('header')
-  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
-  <aside class="sidebar" id="sidebar">
-
-    <button class="close-btn" onclick="closeSidebar()">✕</button>
-
-    <div class="sidebar-top">
-      <div class="brand">
-        <h1>Klaridad</h1>
-        <p>Zamboanga City</p>
-      </div>
-
-      <hr class="divider" style="margin-top: 16px;" />
-
-      <nav>
-        <ul class="nav-menu">
-          <li>
-            <a href="{{ route('citizen.dashboard') }}" class="active">
-              <span class="icon"></span>
-              Project Feed
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('citizen.submit_report') }}">
-              <span class="icon"></span>
-              Submit Report
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('citizen.tracker') }}">
-              <span class="icon"></span>
-              Track Reports
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="sidebar-bottom">
-      <button class="logout-btn">
-        ↪ Logout
-      </button>
-    </div>
-
-  </aside>
+  @include('components.sidebar')
 @endsection
 
 @section('main')
@@ -112,7 +68,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Road Rehabilitation Project</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -124,7 +80,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Water System Upgrade</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -136,7 +92,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Multi-Purpose Hall Construction</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -148,7 +104,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Street Lighting Installation</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -160,7 +116,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Drainage System Improvement</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -172,7 +128,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Basketball Court Renovation</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -184,7 +140,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Road Rehabilitation Project</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -196,7 +152,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Health Center Expansion</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -208,7 +164,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Flood Control Project</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -220,7 +176,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Public Market Renovation</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -232,7 +188,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Bridge Construction</h3>
               <h4 id="ongoing">Ongoing</h4>
@@ -244,7 +200,7 @@
 
         <div class="ProjectTabs">
           <div class="Tabs">
-            <img src="assets/Images/photo-1460533078824-f51edbff2726.jpg">
+            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
             <div class="Title">
               <h3>Community Garden Development</h3>
               <h4 id="ongoing">Ongoing</h4>

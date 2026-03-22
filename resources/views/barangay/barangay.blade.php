@@ -5,24 +5,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="{{ asset('css/components/sidebar.css') }}">
 <link rel="stylesheet" href="{{ asset('css/barangay/barangay.css') }}">
 <title>Klaridad | Barangay Dashboard</title>
+@endsection
+
+@section('header')
 @endsection
 
 @section('main')
 
 <div class="right-panel">
-    <nav class="navbar">
-        <span class="nav-brand">Zamboanga City Governance Platform</span>
-        <a href="{{ url()->current() }}">
-            <div class="nav-profile">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-                </svg>
-                <span class="profile-text">Profile</span>
-            </div>
-        </a>
-    </nav>
+    @include('components.navbar', ['profileRoute' => route('barangay.dashboard')])
 
     <div class="main-content">
 

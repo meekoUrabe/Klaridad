@@ -1,5 +1,5 @@
  * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f3f4f6; }
+    body { font-family: var(--font-secondary); background: var(--bg-muted); }
 
     header {
       align-self: stretch;
@@ -11,12 +11,12 @@
       width: 260px;
       height: 100vh;
       max-height: 100vh;
-      background: white;
+      background: var(--bg-primary);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 24px 16px;
-      border-right: 1px solid #e5e7eb;
+      border-right: 1px solid var(--border-color-light);
       overflow-y: auto;
       flex-shrink: 0;
       transition: transform 0.3s ease;
@@ -30,15 +30,15 @@
     }
 
     .navbar {
-      background: white;
+      background: var(--bg-primary);
       padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid var(--border-color-light);
       flex-shrink: 0;
     }
-    .navbar .nav-brand { color: #2563eb; font-weight: bold; font-size: 18px; }
+    .navbar .nav-brand { color: var(--button-primary-bg); font-weight: bold; font-size: 18px; }
     .navbar a { text-decoration: none; }
 
     .burger-btn {
@@ -48,30 +48,30 @@
     .main-content { flex: 1; padding: 32px; overflow-y: auto; }
 
     .footer {
-      background: white;
-      border-top: 1px solid #e5e7eb;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border-color-light);
       padding: 14px 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 13px;
-      color: #9ca3af;
+      color: var(--text-light);
       flex-shrink: 0;
     }
     .brand h1 {
       font-size: 26px;
       font-weight: bold;
-      color: #2563eb;
+      color: var(--button-primary-bg);
     }
     .brand p {
       font-size: 13px;
-      color: #6b7280;
+      color: var(--text-secondary);
       margin-top: 2px;
     }
 
     .divider {
       border: none;
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid var(--border-color-light);
       margin: 16px 0;
     }
 
@@ -90,14 +90,14 @@
       border-radius: 10px;
       text-decoration: none;
       font-size: 15px;
-      font-weight: 500;
-      color: #374151;
-      background: #f3f4f6;
+      font-weight: var(--font-weight-medium);
+      color: var(--text-secondary);
+      background: var(--bg-muted);
       transition: background 0.2s;
     }
 
     .nav-menu li a:hover {
-      background: #dbeafe;
+      background: var(--blue-50);
       color: #2563eb;
     }
 
