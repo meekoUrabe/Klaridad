@@ -11,7 +11,6 @@ class ReportController extends Controller
 {
     public function post_submit_report(Request $request)
     {
-        dump($request->all());
 
         $validated = $request->validate([
             'sector_id' => 'required|int',
