@@ -405,7 +405,7 @@ CREATE TABLE `user` (
   `first_name` varchar(32) NOT NULL,
   `last_name` varchar(32) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
-  `password` varchar(32) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
