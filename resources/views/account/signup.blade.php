@@ -46,6 +46,19 @@
         <p class="helper-text">Enter your 11-digit Philippine mobile number</p>
       </div>
       <div class="form-group">
+        <label for="barangay">City</label>
+        <div class="input-with-icon">
+          <i class="fas fa-location-dot"></i>
+          <select class="form-input" id="city_id" name="city_id" required>
+            <option value="">Select City</option>
+            @foreach ($city as $c)
+              <option value="{{ $c->city_id }}" {{ (request()->query('city') == $c->city_id) ? 'selected' : ''; }}>{{ $c->name }}</option>
+            @endforeach
+          </select>
+        </div>
+        <p class="helper-text">Select the city where you reside</p>
+      </div>
+      <div class="form-group">
         <label for="barangay">Barangay</label>
         <div class="input-with-icon">
           <i class="fas fa-location-dot"></i>
@@ -71,8 +84,6 @@
         {{ session('error') }}
       </div>
       <button type="submit" class="btn-primary">Sign Up</button>
-      <h2 class="divider"><span>or</span></h2>
-      <button type="button" class="btn-primary">Sign Up with <i class="fa-brands fa-google"></i> mail</button>
       <p>Already have an account? <a href="{{ route('account.login') }}">Login here</a></p>
       <p>By signing up, you agree to use this platform for community governance and transparency.</p>
     </div>
@@ -80,3 +91,16 @@
 </div>
 @endsection
 
+@push('script')
+<script>
+    let city_id = document.getElementById('city_id');
+
+    city_id.addEventListener('change', function () { reQuery('city', city_id); });
+
+    function reQuery(query, element) {
+        const url = new URL(window.location);
+        url.searchParams.set(query, element.value);
+        window.location.href = url.toString();
+    }
+</script>
+@endpush()

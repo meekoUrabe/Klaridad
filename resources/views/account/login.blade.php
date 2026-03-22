@@ -36,9 +36,6 @@
 
   <div class="form-footer">
     <button type="submit" class="btn-auth">Login with Phone Number</button>
-    <h2 class="divider"><span>or</span></h2>
-    <button type="button" class="btn-auth">Login with <i class="fa-brands fa-google"></i> mail</button>
-
     <p>Don't have an account? <a href="{{ route('account.signup') }}">Sign up here</a></p>
     <p>By logging in, you agree to use this platform for community governance and transparency.</p>
   </div>

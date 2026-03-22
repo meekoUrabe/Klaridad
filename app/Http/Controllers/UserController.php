@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\City;
+use App\Models\Sector;
 use App\Models\Barangay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,13 +46,21 @@ class UserController extends Controller
 
     public function signup(Request $request)
     {
-        $barangay = Barangay::all();
-        return view('account.signup', compact('barangay'));
+        $city = City::all();
+        $barangay = Barangay::
+        select('b.*')
+        ->from('barangay as b')
+        ->join('sector as s', 'b.barangay_id', 's.barangay_id')
+        ->where('city_id', '=', $request->query('city'))
+        ->get();
+
+        return view('account.signup', compact('city', 'barangay'));
     }
 
     public function post_signup(Request $request)
     {
         $validated = $request->validate([
+            'city_id' => 'required|int',
             'barangay_id' => 'required|int',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
@@ -65,6 +75,7 @@ class UserController extends Controller
         return DB::transaction(function () use ($validated) {
             $user = User::create([
                 'user_role_id' => 1,
+                'city_id' => $validated['city_id'],
                 'barangay_id' => $validated['barangay_id'],
                 'first_name' => $validated['first_name'],
                 'last_name' => $validated['last_name'],
