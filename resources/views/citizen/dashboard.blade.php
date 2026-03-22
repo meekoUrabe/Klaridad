@@ -20,7 +20,7 @@
     <nav class="navbar">
       <button class="burger-btn" id="burgerBtn" onclick="toggleSidebar()">☰</button>
       <span class="nav-brand">Zamboanga City Governance Platform</span>
-      <a href="{{route('citizen.profile')}}">
+      <a href=" {{ route('citizen.profile') }} ">
         <div class="nav-profile">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
@@ -42,174 +42,42 @@
         <div class="Main-Filter">
           <div class="FilterSelection">
             <h4>Barangay</h4>
-            <select>
-              @foreach ($barangay as $b)
-                <option value="{{ $b->barangay_id }}">{{ $b->name }}</option>
-              @endforeach
+            <select id="barangay" name="barangay">
+                <option value="">All Barangay</option>
+                @foreach ($barangay as $b)
+                    <option value="{{ $b->barangay_id }}" {{ (request()->query('barangay') == $b->barangay_id) ? 'selected' : ''; }}>{{ $b->name }}</option>
+                @endforeach
             </select>
           </div>
 
           <div class="FilterSelection">
             <h4>Status</h4>
-            <select>
-              <option value="">All Status</option>
-              <option value="">Ongoing</option>
-              <option value="">Completed</option>
-              <option value="">Overdue</option>
-              <option value="">Discontinue</option>
+            <select id="status" name="status">
+                <option value="">All Status</option>
+                @foreach ($project_status as $status)
+                    <option value="{{ $status->project_s_id }}" {{ (request()->query('status') == $status->project_s_id) ? 'selected' : ''; }}>{{ $status->status }}</option>
+                @endforeach
             </select>
           </div>
         </div>
       </section>
 
-      <h2>Showing 12 Projects</h2>
+      <h2>Showing {{ $projects->count() }} Projects</h2>
 
       <section class="Projects">
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Road Rehabilitation Project</h3>
-              <h4 id="ongoing">Ongoing</h4>
+        @foreach ($projects as $p)
+            <div class="ProjectTabs">
+              <div class="Tabs">
+                <img src="{{ Storage::disk('project')->url('project/' . $p->picture_path) }}">
+                <div class="Title">
+                  <h3>{{ $p->name }}</h3>
+                  <h4 id="ongoing">{{ $p->status }}</h4>
+                </div>
+                <p>{{ $p->barangay_name }}</p>
+                <p>₱{{ $p->budget }}</p>
+              </div>
             </div>
-            <p>Tetuan</p>
-            <p>₱2,500,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Water System Upgrade</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Guiwan</p>
-            <p>₱3,200,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Multi-Purpose Hall Construction</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Pasonanca</p>
-            <p>₱5,000,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Street Lighting Installation</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>San Roque</p>
-            <p>₱850,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Drainage System Improvement</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Baliwasan</p>
-            <p>₱1,800,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Basketball Court Renovation</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Canelar</p>
-            <p>₱650,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Road Rehabilitation Project</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Tetuan</p>
-            <p>₱2,500,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Health Center Expansion</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Talon-Talon</p>
-            <p>₱4,200,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Flood Control Project</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Tumaga</p>
-            <p>₱6,500,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Public Market Renovation</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Zone I</p>
-            <p>₱3,800,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Bridge Construction</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>Culianan</p>
-            <p>₱7,200,000.00</p>
-          </div>
-        </div>
-
-        <div class="ProjectTabs">
-          <div class="Tabs">
-            <img src="{{ asset('images/651906750_2392787584502522_566011144086514244_n.jpg') }}">
-            <div class="Title">
-              <h3>Community Garden Development</h3>
-              <h4 id="ongoing">Ongoing</h4>
-            </div>
-            <p>La Paz</p>
-            <p>₱450,000.00</p>
-          </div>
-        </div>
-
+        @endforeach
       </section>
 
     </div>{{-- end .main-content --}}
@@ -221,4 +89,17 @@
 
 @push('script')
 <script src="{{ asset('js/sidebar.js') }}"></script>
+<script>
+let barangay_element = document.getElementById('barangay');
+let status_element = document.getElementById('status');
+
+barangay_element.addEventListener('change', function () { reQuery('barangay', barangay_element); });
+status_element.addEventListener('change', function () { reQuery('status', status_element); });
+
+function reQuery(query, element) {
+    const url = new URL(window.location);
+    url.searchParams.set(query, element.value);
+    window.location.href = url.toString();
+}
+</script>
 @endpush
