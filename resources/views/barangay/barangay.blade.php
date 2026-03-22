@@ -16,7 +16,7 @@
 @section('main')
 
 <div class="right-panel">
-    @include('components.navbar', ['profileRoute' => route('barangay.dashboard')])
+    @include('components.navbar', ['profileRoute' => route('barangay.dashboard'), 'showLogout' => true])
 
     <div class="main-content">
 

@@ -17,7 +17,7 @@
 
   <div class="right-panel">
 
-    @include('components.navbar', ['profileRoute' => route('goverment.dashboard')])
+    @include('components.navbar', ['profileRoute' => route('goverment.dashboard'), 'showLogout' => true])
 
     <div class="main-content">
 

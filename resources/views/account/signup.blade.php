@@ -90,7 +90,6 @@
   </form>
 </div>
 @endsection
-
 @push('script')
 <script>
     let city_id = document.getElementById('city_id');
