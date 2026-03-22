@@ -36,6 +36,10 @@ class UserController extends Controller
         // check users access
         if ($user->hasRole('Citizen'))
             return redirect()->route('citizen.dashboard');
+        else if ($user->hasRole('Barangay Official'))
+            return redirect()->route('barangay.dashboard');
+        else if ($user->hasRole('City Government'))
+            return redirect()->route('goverment.dashboard');
     }
 
     public function signup(Request $request)
