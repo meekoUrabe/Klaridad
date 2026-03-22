@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class UserAccess extends Model
 {
     protected $table = "user_access";
-    protected $primaryKey = "user_access_id";
+    protected $primaryKey = "user_id";
     public $timestamps = false;
 
     protected $fillable = [
         'user_id',
-        'sector_id'
+        'city_id',
+        'barangay_id'
     ];
 }

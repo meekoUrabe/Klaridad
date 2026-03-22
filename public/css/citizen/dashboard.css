@@ -1,0 +1,141 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(244, 248, 248);
+}
+
+body h2{
+    font-family: 'Inter', sans-serif;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: var(--font-weight-medium);
+}
+
+footer h1{
+    margin-top: 30px;
+    border-top: 1px solid var(--border);
+    padding: 30px;
+    font-size: 15px;
+    color: var(--muted-foreground);
+    font-weight: var(--font-weight-normal);
+    display: flex;
+    justify-content: center;
+}
+
+/* Header Design */
+
+.header1{
+    padding: 20px 0px 20px 20px;
+}
+
+.header1 h1{
+    color: var(--color);
+}
+
+
+/* Filter Design */
+
+.Filter{
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-default);
+    padding: 20px 20px;
+
+}
+
+.Filter h3{
+    background-color: white;
+    font-size: 23px;
+    margin: 5px 0px 0px 0px;
+    font-weight: var(--font-weight-medium);
+}
+
+.Main-Filter{
+    margin: 40px 0px 10px 0px;
+    flex-wrap: wrap;
+    gap: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.FilterSelection select{
+    border-radius: 5px;
+    border: 1px solid var(--border-default);
+    width: 500px;
+    padding: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.FilterSelection h4{
+    color: var(--muted-foreground);
+    margin: 0px 0px 5px 0px;
+}
+
+@media (max-width: 600px) {
+  .FilterSelection select {
+    width: 350px;
+  }
+}
+
+@media (max-width: 460px) {
+  .FilterSelection select {
+    width: 250px;
+  }
+}
+
+/* Projects Design */
+.Projects{
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    display: flex;
+    margin: 5px;
+}
+
+.Projects p{
+    margin: 0px 0px 0px 20px;
+}
+
+.Tabs{
+    padding: 0px 0px 30px 0px;
+    border-radius: 15px;
+    border: 1px solid var(--border-default);
+    width: 350px;
+    transition: all 0.2s ease-in-out;
+}
+
+.Tabs img{
+    border-radius: 15px 15px 0px 0px;
+    width: 350px;
+}
+
+.Tabs:hover{
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.221);
+}
+
+.Title{
+    padding: 20px;
+    display:flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+#ongoing{
+    align-items: center;
+    font-size: 15px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    color: #1d45b3;
+    border: 1px solid var(--border-primary);
+    background-color: rgb(207, 223, 249);
+    border-radius: 15px ;
+    padding: 6px 15px;
+}

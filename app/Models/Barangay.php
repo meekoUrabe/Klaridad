@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sector extends Model
+class Barangay extends Model
 {
-    protected $table = "sector";
-    protected $primaryKey = "sector_id";
+    protected $table = "barangay";
+    protected $primaryKey = "barangay_id";
     public $timestamps = false;
 
     protected $fillable = [
-        'city_id',
-        'barangay_id'
+        'name'
     ];
 }
