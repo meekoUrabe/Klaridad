@@ -3,6 +3,7 @@ use App\Models\Barangay;
 use App\Models\Report;
 use App\Models\ReportCategory;
 use App\Models\ReportStatus;
+use App\Models\Project;
 use App\Models\ProjectStatus;
 
 use Illuminate\Support\Facades\Route;
@@ -32,8 +33,20 @@ Route::prefix('citizen')->group(function ()
     // page or php blade file
     Route::get('dashboard', function() {
         $barangay = Barangay::all();
+        $project_status = ProjectStatus::all();
 
-        return view('citizen.dashboard', compact("barangay"));
+        $projects = Project::
+        select('p.name', 'p.picture_path', 'ps.status', 'b.name as barangay_name', 'p.budget')
+        ->from('project as p')
+        ->join('sector as s', 's.sector_id', '=', 'p.sector_id')
+        ->join('barangay as b', 's.barangay_id', '=', 'b.barangay_id')
+        ->join('project_status as ps', 'ps.project_s_id', '=', 'p.project_s_id')
+        ->where('b.barangay_id', 'LIKE', '%' . request()->query('barangay') . '%')
+        ->where('ps.project_s_id', 'LIKE', '%' . request()->query('status') . '%')
+        ->get();
+
+        
+        return view('citizen.dashboard', compact("barangay", "project_status", "projects"));
         } )->name('citizen.dashboard');
 
     Route::get('submit_report', function() {
@@ -73,7 +86,7 @@ Route::prefix('citizen')->group(function ()
         ->get();
 
         return view('citizen.tracker',
-        compact('report','barangay', 'report_category', 'report_status'));
+        compact('report', 'barangay', 'report_category', 'report_status'));
         } )->name('citizen.tracker');
 
     Route::get('profile', function() {

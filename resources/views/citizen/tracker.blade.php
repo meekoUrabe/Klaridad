@@ -88,7 +88,7 @@
       </section>
 
       <div class="shown-report">
-        <p>Showing 0 reports:</p>
+        <p>Showing {{ $report->count() }} reports:</p>
       </div>
 
       @foreach ($report as $r)
@@ -151,6 +151,5 @@ function reQuery(query, element) {
     url.searchParams.set(query, element.value);
     window.location.href = url.toString();
 }
-
 </script>
 @endpush
