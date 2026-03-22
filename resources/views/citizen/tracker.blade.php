@@ -51,51 +51,31 @@
           <div class="filter-grid">
             <div class="filter-item">
               <label for="category">Category</label>
-              <select id="category" class="form-input">
-                <option value="all-categories">All Categories</option>
-                <option value="infrastructure">Infrastructure</option>
-                <option value="corruption">Corruption</option>
-                <option value="public-safety">Public Safety</option>
-                <option value="environment">Environment</option>
-                <option value="other">Other</option>
+              <select id="category" class="form-input" name="category">
+                <option value="">All Categories</option>
+                @foreach ($report_category as $category)
+                    <option value="{{ $category->report_c_id }}" {{ (request()->query('category') == $category->category_id) ? 'selected' : ''; }}>{{ $category->category }}</option>
+                @endforeach
               </select>
             </div>
 
             <div class="filter-item">
               <label for="barangay">Barangay</label>
-              <select class="form-input" id="barangay" name="barangay">
+              <select class="form-input" id="barangay" name="id">
                 <option value="">All Barangays</option>
-                <option value="Baliwasan">Baliwasan</option>
-                <option value="Canelar">Canelar</option>
-                <option value="Culianan">Culianan</option>
-                <option value="Guiwan">Guiwan</option>
-                <option value="La Paz">La Paz</option>
-                <option value="Pasonanca">Pasonanca</option>
-                <option value="San Roque">San Roque</option>
-                <option value="Talon-Talon">Talon-Talon</option>
-                <option value="Tetuan">Tetuan</option>
-                <option value="Tumaga">Tumaga</option>
+                @foreach ($barangay as $b)
+                    <option value="{{ $b->barangay_id }}" {{ (request()->query('id') == $b->barangay_id) ? 'selected' : ''; }}>{{ $b->name }}</option>
+                @endforeach
               </select>
             </div>
 
             <div class="filter-item">
               <label for="status">Status</label>
-              <select id="status" class="form-input">
-                <option value="all-status">All Status</option>
-                <option value="received">Received</option>
-                <option value="in-review">In Review</option>
-                <option value="resolved">Resolved</option>
-              </select>
-            </div>
-
-            <div class="filter-item">
-              <label for="time-period">Time Period</label>
-              <select id="time-period" class="form-input">
-                <option value="all-time">All Time</option>
-                <option value="recent">Recent (7 days)</option>
-                <option value="this-month">This Month</option>
-                <option value="last-3-months">Last 3 Months</option>
-                <option value="this-year">This Year</option>
+              <select id="status" class="form-input" name='status'>
+                <option value=" ">All Status</option>
+                @foreach ($report_status as $status)
+                    <option value="{{ $status->report_s_id }}" {{ (request()->query('status') == $status->report_s_id) ? 'selected' : ''; }}>{{ $status->status }}</option>
+                @endforeach
               </select>
             </div>
           </div>
@@ -106,6 +86,7 @@
         <p>Showing 0 reports:</p>
       </div>
 
+      @foreach ($report as $r)
       <section class="tracker-card">
         <div class="report-card">
           <div class="ai-summary">
@@ -115,38 +96,53 @@
           <div class="report-card__header">
             <div class="report-card__title">
               <span><i class="fas fa-note-sticky"></i></span>
-              <span>[REPORT ID HERE]</span>
+              <span>{{ '#' . $r->report_id }}</span>
             </div>
             <div class="report-card__meta">
-              <button class="upvotes"><i class="fas fa-thumbs-up"></i> 67</button>
-              <span class="status-pill status-in-review">[Status]</span>
+              <button class="upvotes"><i class="fas fa-thumbs-up"></i>{{ $r->likes }} </button>
+              <span class="status-pill status-in-review">{{ $r->status }}</span>
             </div>
           </div>
-          <p class="report-description">[No Description Yet]</p>
+          <p class="report-description">{{ $r->description }}</p>
           <div class="report-card__grid">
             <div class="report-detail">
               <h4><i class="fas fa-tag"></i> Category</h4>
-              <p>[Category]</p>
+              <p>{{ $r->category }}</p>
             </div>
             <div class="report-detail">
               <h4><i class="fas fa-map-marker-alt"></i> Barangay</h4>
-              <p>[Barangay]</p>
+              <p>{{ $r->barangay }}</p>
             </div>
             <div class="report-detail">
               <h4><i class="fas fa-calendar-alt"></i> Date Submitted</h4>
-              <p>[Month - Date, Year]</p>
+              <p>{{ $r->date_created }}</p>
             </div>
           </div>
         </div>
-      </section>
 
+      </section>
+              @endforeach
     </div>{{-- end .main-content --}}
 
   </div>{{-- end .right-panel --}}
 @endsection
 
-
-
 @push('script')
 <script src="{{ asset('js/sidebar.js') }}"></script>
+<script>
+let barangay_element = document.getElementById('barangay');
+let category_element = document.getElementById('category');
+let status_element = document.getElementById('status');
+
+barangay_element.addEventListener('change', function () { reQuery('id', barangay_element); });
+category_element.addEventListener('change', function () { reQuery('category', category_element); });
+status_element.addEventListener('change', function () { reQuery('status', status_element); });
+
+function reQuery(query, element) {
+    const url = new URL(window.location);
+    url.searchParams.set(query, element.value);
+    window.location.href = url.toString();
+}
+
+</script>
 @endpush

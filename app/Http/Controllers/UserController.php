@@ -33,7 +33,9 @@ class UserController extends Controller
         // new session
         $request->session()->regenerate();
 
-        return redirect()->route('home');
+        // check users access
+        if ($user->hasRole('Citizen'))
+            return redirect()->route('citizen.dashboard');
     }
 
     public function signup(Request $request)
@@ -71,5 +73,15 @@ class UserController extends Controller
 
             return back()->with('error', 'Something went wrong');
         });
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

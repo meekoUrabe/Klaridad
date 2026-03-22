@@ -38,13 +38,13 @@
       </section>
 
       <section class="form-container">
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="{{ route('citizen.post_submit_report')}}" method="POST" enctype="multipart/form-data">
           @csrf
 
           <div class="report-card">
             <div class="anonymous">
               <h4>
-                <input type="checkbox">
+                <input type="checkbox" name="anonymous" value="checked">
                 <span><i class="fas fa-user-check"></i></span>
                 Report Anonymously
               </h4>
@@ -58,8 +58,11 @@
               <label for="barangay">Barangay</label>
               <div class="input-with-icon">
                 <i class="fas fa-location-dot"></i>
-                <select class="form-input" id="barangay" name="barangay_id" required>
+                <select class="form-input" id="barangay" name="sector_id" required>
                   <option value="">Select Barangay</option>
+                    @foreach ($barangay as $b)
+                        <option value="{{ $b->barangay_id }}">{{ $b->name }}</option>
+                    @endforeach
                 </select>
               </div>
             </div>
@@ -68,24 +71,22 @@
               <label for="category">Category</label>
               <div class="input-with-icon">
                 <i class="fas fa-tags"></i>
-                <select id="category" class="form-input" name="category" required>
+                <select id="category" class="form-input" name="report_c_id" required>
                   <option value="">Select Category</option>
-                  <option value="infrastructure">Infrastructure</option>
-                  <option value="sanitation">Sanitation</option>
-                  <option value="safety">Public Safety</option>
-                  <option value="health">Health</option>
-                  <option value="other">Other</option>
+                    @foreach ($report_category as $category)
+                        <option value="{{ $category->report_c_id }}">{{ $category->category }}</option>
+                    @endforeach
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="description">Description</label>
+              <label for="description" name="description">Description</label>
               <textarea id="description" cols="5" rows="6" class="form-input" name="description" placeholder="Describe the problem or concern in detail..."></textarea>
             </div>
 
             <div class="form-group">
-              <label for="location">Location</label>
+              <label for="location" name="location">Location</label>
               <input type="text" class="form-input" id="location" name="location" placeholder="Specific Location (e.g., Corner of Main St. and 2nd Ave.)">
             </div>
 

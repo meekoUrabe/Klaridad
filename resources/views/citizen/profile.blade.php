@@ -41,7 +41,7 @@
       <p>Manage your personal information and account settings</p>
     </div>
 
-    
+
     <div class="profile-card">
       <div class="left">
         <div class="avatar">
@@ -49,9 +49,9 @@
             viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </div>
         <div class="profile-info">
-          <h2>Juan Dela Cruz</h2>
+          <h2>{{ auth()->user()->last_name . ', ' . auth()->user()->first_name }}</h2>
           <div class="badges">
-            <span class="badge">🛡 Citizen</span>
+            <span class="badge">🛡 {{ auth()->user()->userRole->role }}</span>
             <span class="badge">📍 Tetuan</span>
           </div>
           <p class="member-since">📅 Member since January 15, 2024</p>
@@ -64,17 +64,12 @@
 
       <div class="form-group">
         <label>Full Name</label>
-        <input type="text" placeholder="Juan Dela Cruz" disabled />
-      </div>
-
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="juan.delacruz@email.com" disabled />
+        <input type="text" placeholder="{{ auth()->user()->last_name . ', ' . auth()->user()->first_name }}" disabled />
       </div>
 
       <div class="form-group">
         <label>Phone Number</label>
-        <input type="tel" placeholder="09123456789" disabled />
+        <input type="tel" placeholder="{{ auth()->user()->phone_number }}" disabled />
         <p class="hint">Format: 09XX XXX XXXX</p>
       </div>
 

@@ -37,9 +37,9 @@
   </div>
 
   <div class="sidebar-bottom">
-    <button class="logout-btn">
+    <a href="{{ route('account.logout') }}"class="logout-btn">
       ↪ Logout
-    </button>
+    </a>
   </div>
 
 </aside>
