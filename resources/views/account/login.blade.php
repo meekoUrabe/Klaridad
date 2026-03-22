@@ -40,15 +40,4 @@
     <p>By logging in, you agree to use this platform for community governance and transparency.</p>
   </div>
 </form>
-
-<!-- TEMPORARY: Quick Access Dashboards (Remove Later) -->
-<div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107; max-width: 400px;">
-  <p style="margin: 0 0 12px 0; font-weight: 600; color: #856404;">⚡ Temporary Debug Links</p>
-  <div style="display: flex; flex-direction: column; gap: 8px;">
-    <a href="{{ route('citizen.dashboard') }}" style="padding: 10px 12px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; text-align: center; font-size: 14px;">👤 Citizen Dashboard</a>
-    <a href="{{ route('barangay.dashboard') }}" style="padding: 10px 12px; background: #28a745; color: white; text-decoration: none; border-radius: 4px; text-align: center; font-size: 14px;">🏢 Barangay Dashboard</a>
-    <a href="{{ route('goverment.dashboard') }}" style="padding: 10px 12px; background: #6f42c1; color: white; text-decoration: none; border-radius: 4px; text-align: center; font-size: 14px;">🏛️ Government Dashboard</a>
-  </div>
-</div>
-<!-- END TEMPORARY -->
 @endsection
