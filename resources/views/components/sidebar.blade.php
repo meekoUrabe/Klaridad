@@ -37,25 +37,6 @@
   </div>
 
   <div class="sidebar-bottom">
-    <div class="role-switcher-wrapper">
-      <div class="role-dropdown" id="roleDropdown">
-        <div class="role-option selected" data-role="Citizen">
-          Citizen <span class="checkmark">✓</span>
-        </div>
-        <div class="role-option" data-role="Barangay Official">
-          Barangay Official
-        </div>
-        <div class="role-option" data-role="City Government">
-          City Government
-        </div>
-      </div>
-
-      <div class="role-selected" id="roleSelected" onclick="toggleDropdown()">
-        <span id="roleLabel">Citizen</span>
-        <span class="arrow">▾</span>
-      </div>
-    </div>
-
     <button class="logout-btn">
       ↪ Logout
     </button>

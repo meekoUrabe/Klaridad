@@ -56,7 +56,7 @@
     <section class="section2">
         <div class="section-head">
             <h2>All Barangays Overview</h2>
-            <h3>Showing data for all 24 barangays in Zamboanga City</h3>
+            <h3>Showing data for all 99 barangays in Zamboanga City</h3>
         </div>
     </section>
 
