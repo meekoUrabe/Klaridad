@@ -130,19 +130,19 @@
     <div class="steps-grid">
       <div class="step">
         <div class="step-num">1</div>
-        <img src="{{ asset('images/651925301_1659234341775889_259990763545809867_n.png') }}" alt="Create Account" class="step-img" />
+        <img src="{{ asset('images/create_your_account.png') }}" alt="Create Account" class="step-img" />
         <h3>Create Your Account</h3>
         <p>Sign up as a Citizen, Barangay Official, or City Government representative. Choose your barangay to get started.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <img src="{{ asset('images/653983730_1658730725316825_444310186740901573_n.png') }}" alt="Engage with Content" class="step-img" />
+        <img src="{{ asset('images/engage_with_content.png') }}" alt="Engage with Content" class="step-img" />
         <h3>Engage with Content</h3>
         <p>View projects, submit reports, upvote issues, and track progress. Your voice matters in your community.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <img src="{{ asset('images/655631322_2091786628390909_2514950932201686784_n.png') }}" alt="See Results" class="step-img" />
+        <img src="{{ asset('images/see_real_results.png') }}" alt="See Results" class="step-img" />
         <h3>See Real Results</h3>
         <p>Watch as your reports get addressed, projects move forward, and your community becomes more transparent.</p>
       </div>
@@ -235,9 +235,9 @@
         </ul>
       </div>
     </div>
-    {{-- <div class="footer-bottom">
-      <p>&copy; 2026 Klaridad. All rights reserved. Built for Zamboanga City.</p>
-    </div> --}}
+    <div class="footer-bottom">
+      <p>&copy; {{ date('Y') }} Klaridad - TabiDev Studios</p>
+    </div>
   </div>
 @endsection
 
