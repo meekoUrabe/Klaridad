@@ -41,6 +41,39 @@
     .navbar .nav-brand { color: var(--button-primary-bg); font-weight: bold; font-size: 18px; }
     .navbar a { text-decoration: none; }
 
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: var(--font-weight-medium);
+      transition: background 0.2s;
+    }
+
+    .nav-profile:hover {
+      background: var(--blue-50);
+      color: var(--button-primary-bg);
+    }
+
+    .navbar-logout-btn {
+      width: auto;
+      padding: 10px 14px;
+      font-size: 14px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
     .burger-btn {
       display: none;
     }
@@ -269,5 +302,10 @@
       }
       .profile-text {
         display: none;
+      }
+
+      .navbar-logout-btn {
+        padding: 10px 12px;
+        font-size: 13px;
       }
 }
