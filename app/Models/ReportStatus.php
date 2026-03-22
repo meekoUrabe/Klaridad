@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class ReportStatus extends Model
 {
-    protected $table = "city";
-    protected $primaryKey = "city_id";
+    protected $table = "report_status";
+    protected $primaryKey = "report_s_id";
     public $timestamps = false;
 
     protected $fillable = [
-        'name'
+        'status'
     ];
 }

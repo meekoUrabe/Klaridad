@@ -152,13 +152,14 @@
 
 body{
     font-family: 'Inter', sans-serif;
-    margin: 30px 0px 0px 0px;
+    margin: 0;
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
+    padding: 0;
 }
 
 /* loginbox design */
@@ -167,69 +168,106 @@ body{
     color: var(--color);
 }
 
+.header {
+    width: 100%;
+    text-align: center;
+    padding: 12px 16px;
+}
+
 .header p{
     color: var(--muted-foreground);
 }
 
 
 .login-box{
-    margin: 50px;
-    justify-content: center;
-    flex-direction: column;
     display: flex;
-    align-items: center;
-    align-content: center;
-    border-radius: 10px;
-    box-shadow: var(--shadow-xl);
-    padding: 30px 50px 15px 50px;
+    flex-direction: column;
+    width: min(100%, 450px);
+    max-width: 450px;
+    flex: 1;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin: 20px 16px;
+    padding: 24px 32px;
+    overflow: hidden;
 }
 
 .login-box h1{
-    border-radius: 10px;
-    font-size: 18px;
-    margin: 10px 0px 50px 0px;
+    margin: 0 0 24px 0;
+    font-size: 1.75rem;
+    color: var(--primary);
+    font-weight: 600;
 }
 
 .main-loginbox{
-    flex-wrap: wrap;
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    width: 100%;
 }
 
 .main-loginbox label{
-    margin: 0px 0px 5px 0px;
-    font-size: 13px;
-    align-self: self-start;
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 500;
+    text-align: start;
 }
 
 .main-loginbox input{
-    border: 1px solid rgba(0, 0, 0, 0.427);
-    border-radius: 7px;
-    padding: 15px 10px 15px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background-color: #f8f9fa;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 
 .main-loginbox p{
-    color: rgba(7, 7, 7, 0.649);
-    margin: 5px 0px 20px 0px;
-    font-size: 11px;
-    align-self: self-start;
+    margin: 0 0 12px 0;
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: start;
+}
+
+.form-footer {
+    padding: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--muted-foreground);
+    font-weight: var(--font-weight-medium);
+    font-size: 12px;
+}
+
+.form-footer p {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 12px;
+    font-weight: var(--font-weight-normal);
+    text-align: center;
+}
+
+.form-footer p a {
+    text-decoration: none;
+    color: var(--color);
 }
 
 .login-box h2{
     align-self: center;
-    width: 260px;
+    width: 100%;
     color: rgba(0, 0, 0, 0.563);
-    margin: 20px;
+    margin: 15px 0;
     font-size: var(--font-size);
     font-weight: var(--font-weight-normal);
 
 }
 
 .login-box h3{
-    align-self: center;
-    width: 260px;
-    color: rgba(0, 0, 0, 0.563);
-    margin: 20px;
+    color: var(--muted-foreground);
+    margin: 8px 0;
     font-size: 12px;
     font-weight: var(--font-weight-normal);
 
@@ -243,21 +281,21 @@ body{
 
 }
 
-#btn{
+.btn-auth{
     border: 1px solid black;
     border-radius: 10px;
     font-size: 16px;
     color: aliceblue;
     background-color: var(--button-primary-bg);
-    margin: 0px 0px 0px 0px;
-    width: 300px;
+    margin: 0;
+    width: 390px;
     text-align: center;
     align-self: center;
     padding: 22px;
     transition: all 0.2s ease-in-out;
 }
 
-#btn:hover{
+.btn-auth:hover{
     background-color: var(--button-primary-bg-hover);
 
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostStatus;
+use App\Models\ReportCategory;
 use Illuminate\Http\Request;
 
-class PostStatusController extends Controller
+class ReportCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PostStatusController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PostStatus $postStatus)
+    public function show(ReportCategory $reportCategory)
     {
         //
     }
@@ -42,7 +42,7 @@ class PostStatusController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PostStatus $postStatus)
+    public function edit(ReportCategory $reportCategory)
     {
         //
     }
@@ -50,7 +50,7 @@ class PostStatusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PostStatus $postStatus)
+    public function update(Request $request, ReportCategory $reportCategory)
     {
         //
     }
@@ -58,7 +58,7 @@ class PostStatusController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostStatus $postStatus)
+    public function destroy(ReportCategory $reportCategory)
     {
         //
     }
