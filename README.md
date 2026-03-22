@@ -45,21 +45,6 @@ Klaridad is a web platform that transforms raw government data into:
 | Frontend | Laravel Blade |
 | AI | Integrated AI summary engine |
 
----
-
-## Running Locally
-```bash
-git clone https://github.com/meekoUrabe/Klaridad.git
-cd Klaridad
-composer install
-npm install && npm run dev
-cp .env.example .env
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
-```
-
-App runs at `http://localhost:8000`
 
 ---
 
