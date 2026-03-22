@@ -21,7 +21,6 @@ class ReportController extends Controller
             'photo' => 'required|mimes:jpg,bmp,png'
         ]);
 
-        // hack, fix until we set users location based on sector table, not in barangay
         $sector_id = Sector::where('barangay_id', $validated['sector_id'])->first()['sector_id'];
 
         return DB::transaction(function () use ($validated, $sector_id, $request) {

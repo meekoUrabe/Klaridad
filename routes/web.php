@@ -3,10 +3,12 @@ use App\Models\Barangay;
 use App\Models\Report;
 use App\Models\ReportCategory;
 use App\Models\ReportStatus;
+use App\Models\ProjectStatus;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return view('home');
@@ -82,8 +84,11 @@ Route::prefix('citizen')->group(function ()
 Route::prefix('barangay')->group(function ()
 {
     Route::get('dashboard', function() {
-        return view('barangay.barangay');
-        } )->name('barangay.dashboard');
+        $project_status = ProjectStatus::all();
+        return view('barangay.barangay', compact('project_status'));
+        })->name('barangay.dashboard');
+
+    Route::post('dashboard', [ProjectController::class, 'post_project'])->name('barangay.post_project');
 });
 
 Route::prefix('goverment')->group(function ()

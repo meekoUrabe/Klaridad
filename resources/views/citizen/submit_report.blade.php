@@ -31,7 +31,6 @@
     </nav>
 
     <div class="main-content">
-
       <section class="submit-report-header">
         <h2>Submit a Report</h2>
         <p>Report a community problem or concern to your barangay government</p>
@@ -98,7 +97,6 @@
                 <p>Upload a photo of the issue (if available)</p>
               </div>
             </div>
-
             <div class="form-footer">
               <button type="submit" class="btn-primary">Submit Report</button>
             </div>
@@ -107,10 +105,8 @@
 
         </form>
       </section>
-
-    </div>{{-- end .main-content --}}
-
-  </div>{{-- end .right-panel --}}
+    </div>
+  </div>
 @endsection
 
 @push('script')
