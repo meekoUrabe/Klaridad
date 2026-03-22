@@ -11,8 +11,6 @@ class ReportController extends Controller
 {
     public function post_submit_report(Request $request)
     {
-        dump($request->all());
-
         $validated = $request->validate([
             'sector_id' => 'required|int',
             'report_c_id' => 'required|int',
@@ -22,7 +20,6 @@ class ReportController extends Controller
             'photo' => 'required|mimes:jpg,bmp,png'
         ]);
 
-        // hack, fix until we set users location based on sector table, not in barangay
         $sector_id = Sector::where('barangay_id', $validated['sector_id'])->first()['sector_id'];
 
         return DB::transaction(function () use ($validated, $sector_id, $request) {

@@ -30,48 +30,57 @@
         <h1>Post New Project</h1>
         <button onclick="toggleForm()">+ Add Project</button>
     </div>
-    
+
     <div id="formBox" class="hidden">
-        <form id="Formain">
+        <form id="form_submission" action="{{ route('barangay.post_project')}}" method="POST" enctype="multipart/form-data">
+          @csrf
             <div id="tabs">
                 <label>Project Name</label>
-                <input type="text" placeholder="Enter Project Name">
+                <input type="text" placeholder="Enter Project Name" name="name">
             </div>
-            
+
             <div id="tabs">
                 <label>Budget (PHP)</label>
-                <input type="number" placeholder="0.00">
+                <input type="number" placeholder="0.00" min='0' name="budget">
             </div>
-            
+
             <div id="tabs">
                 <label>Status</label>
-                <select>
-                    <option>Ongoing</option>
-                    <option>Completed</option>
-                    <option>Discontinued</option>
-                    <option>Overdue</option>
+                <select name="status">
+                    @foreach ($project_status as $status)
+                     <option value={{ $status->project_s_id }}>{{ $status->status }}</option>
+                    @endforeach
                 </select>
             </div>
-            
+
             <div id="tabs">
                 <label>Photo Upload</label>
-                <input type="file">
+                <input type="file" name="photo">
             </div>
-            
+
             <div id="Desc">
                 <p>Description</p>
-                <textarea placeholder="Description"></textarea>
+                <textarea placeholder="Description" name="description"></textarea>
             </div>
-            
-        </form>
-        <button type="submit">Submit Project</button>
-    </div>
 
-  </div>{{-- end .main-content --}}
-</div>{{-- end .right-panel --}}
+        </form>
+        <button type="submit" onclick="submitForm()">Submit Project</button>
+    </div>
+    <div id="response">
+        {{ session('success') }}
+        {{ session('error') }}
+    </div>
+  </div>
+</div>
 @endsection
 
 @push('script')
 <script src="{{ asset('js/barangay/barangay.js') }}"></script>
+<script>
+    function submitForm() {
+        let form = document.getElementById('form_submission');
+        form.submit();
+    }
+</script>
 @endpush
-    
+

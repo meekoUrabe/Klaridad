@@ -38,6 +38,13 @@ return [
             'report' => false,
         ],
 
+        'project' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+
         'report' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
