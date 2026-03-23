@@ -96,7 +96,7 @@
         <div class="report-card">
           <div class="ai-summary">
             <h4><span><i class="fas fa-circle-exclamation"></i></span> AI Summary</h4>
-            <p>[AI summary description here]</p>
+              <p>Planned feature: AI-assisted summary will be added after the hackathon.</p>
           </div>
           <div class="report-card__header">
             <div class="report-card__title">

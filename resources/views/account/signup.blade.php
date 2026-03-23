@@ -52,7 +52,7 @@
           <select class="form-input" id="city_id" name="city_id" required>
             <option value="">Select City</option>
             @foreach ($city as $c)
-              <option value="{{ $c->city_id }}" {{ (request()->query('city') == $c->city_id) ? 'selected' : ''; }}>{{ $c->name }}</option>
+              <option value="{{ $c->city_id }}" {{ (old('city_id', request()->query('city')) == $c->city_id) ? 'selected' : ''; }}>{{ $c->name }}</option>
             @endforeach
           </select>
         </div>
@@ -65,7 +65,7 @@
           <select class="form-input" id="barangay" name="barangay_id" required>
             <option value="">Select Barangay</option>
             @foreach ($barangay as $b)
-              <option value="{{ $b->barangay_id }}">{{ $b->name }}</option>
+              <option value="{{ $b->barangay_id }}" {{ old('barangay_id') == $b->barangay_id ? 'selected' : '' }}>{{ $b->name }}</option>
             @endforeach
           </select>
         </div>
@@ -92,14 +92,52 @@
 @endsection
 @push('script')
 <script>
-    let city_id = document.getElementById('city_id');
+  const cityElement = document.getElementById('city_id');
+  const barangayElement = document.getElementById('barangay');
+  const oldBarangayId = "{{ old('barangay_id') }}";
+  const barangaysUrl = "{{ route('account.barangays') }}";
 
-    city_id.addEventListener('change', function () { reQuery('city', city_id); });
+  function resetBarangayOptions() {
+    barangayElement.innerHTML = '<option value="">Select Barangay</option>';
+  }
 
-    function reQuery(query, element) {
-        const url = new URL(window.location);
-        url.searchParams.set(query, element.value);
-        window.location.href = url.toString();
+  function setBarangaySelection() {
+    if (oldBarangayId) {
+      barangayElement.value = oldBarangayId;
     }
+  }
+
+  async function loadBarangays(cityId) {
+    resetBarangayOptions();
+
+    if (!cityId) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${barangaysUrl}?city_id=${encodeURIComponent(cityId)}`);
+      if (!response.ok) {
+        return;
+      }
+
+      const barangays = await response.json();
+      barangays.forEach((barangay) => {
+        const option = document.createElement('option');
+        option.value = barangay.barangay_id;
+        option.textContent = barangay.name;
+        barangayElement.appendChild(option);
+      });
+
+      setBarangaySelection();
+    } catch (error) {
+      // Keep the form usable even if the request fails.
+    }
+  }
+
+  cityElement.addEventListener('change', function () {
+    loadBarangays(cityElement.value);
+  });
+
+  loadBarangays(cityElement.value);
 </script>
-@endpush()
+@endpush

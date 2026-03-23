@@ -16,10 +16,15 @@ class ProjectController extends Controller
             'budget' => 'required|numeric',
             'status' => 'required|int',
             'description' => 'required|string',
-            'photo' => 'required|mimes:jpg,bmp,png'
+            'photo' => 'nullable|mimes:jpg,bmp,png'
         ]);
 
-        $sector_id = Sector::where('barangay_id', auth()->user()->barangay_id)->first()['sector_id'];
+        $sector = Sector::where('barangay_id', auth()->user()->barangay_id)->first();
+
+        if (!$sector)
+            return back()->with('error', 'No sector found for your barangay');
+
+        $sector_id = $sector->sector_id;
 
         return DB::transaction(function () use ($validated, $sector_id, $request) {
             $project = Project::create([
@@ -36,6 +41,9 @@ class ProjectController extends Controller
                 return back()->with('error', 'Something went wrong');
 
             $file = $request->file('photo');
+            if (!$file)
+                return back()->with('success', 'Project succesfully added');
+
             $extension = $file->getClientOriginalExtension();
 
             $fileName = md5('project_' . $project->project_id) . '.' . $extension;

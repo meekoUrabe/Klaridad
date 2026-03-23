@@ -18,10 +18,15 @@ class ReportController extends Controller
             'anonymous' => 'string',
             'description' => 'required|string',
             'location' => 'required|string',
-            'photo' => 'required|mimes:jpg,bmp,png'
+            'photo' => 'nullable|mimes:jpg,bmp,png'
         ]);
 
-        $sector_id = Sector::where('barangay_id', $validated['sector_id'])->first()['sector_id'];
+        $sector = Sector::where('barangay_id', $validated['sector_id'])->first();
+
+        if (!$sector)
+            return back()->with('error', 'No sector found for selected barangay');
+
+        $sector_id = $sector->sector_id;
 
         return DB::transaction(function () use ($validated, $sector_id, $request) {
             $report = Report::create([
@@ -31,7 +36,7 @@ class ReportController extends Controller
                 'report_s_id' => 1,
                 'anonymous' => isset($validated['anonymous']) && $validated['anonymous'] == 'checked' ? 1 : 0,
                 'description' => $validated['description'],
-                'location' => $validated['description'],
+                'location' => $validated['location'],
                 'picture_path' => 'placeholder',
             ]);
 
@@ -39,6 +44,9 @@ class ReportController extends Controller
                 return back()->with('error', 'Something went wrong');
 
             $file = $request->file('photo');
+            if (!$file)
+                return back()->with('success', 'Report succesfully submitted');
+
             $extension = $file->getClientOriginalExtension();
 
             $fileName = md5('report_' . $report->report_id) . '.' . $extension;

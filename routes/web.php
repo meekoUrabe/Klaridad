@@ -19,16 +19,19 @@ Route::get('/', function () {
 Route::prefix('account')->group(function ()
 {
     // page or php blade file
-    Route::get('signup', [UserController::class, 'signup'] )->name('account.signup');
-    Route::post('signup', [UserController::class, 'post_signup'])->name('account.post_signup');
+    Route::middleware('guest')->group(function () {
+        Route::get('signup', [UserController::class, 'signup'] )->name('account.signup');
+        Route::post('signup', [UserController::class, 'post_signup'])->name('account.post_signup');
+        Route::get('barangays', [UserController::class, 'barangays'])->name('account.barangays');
 
-    Route::get('login', [UserController::class, 'login'])->name('account.login');
-    Route::post('login', [UserController::class, 'post_login'])->name('account.post_login');
+        Route::get('login', [UserController::class, 'login'])->name('account.login');
+        Route::post('login', [UserController::class, 'post_login'])->name('account.post_login');
+    });
 
-    Route::get('logout', [UserController::class, 'logout'])->name('account.logout');
+    Route::get('logout', [UserController::class, 'logout'])->middleware('auth')->name('account.logout');
 });
 
-Route::prefix('citizen')->group(function ()
+Route::prefix('citizen')->middleware('auth')->group(function ()
 {
     // page or php blade file
     Route::get('dashboard', function() {
@@ -94,7 +97,7 @@ Route::prefix('citizen')->group(function ()
         } )->name('citizen.profile');
 });
 
-Route::prefix('barangay')->group(function ()
+Route::prefix('barangay')->middleware('auth')->group(function ()
 {
     Route::get('dashboard', function() {
         $project_status = ProjectStatus::all();
@@ -104,7 +107,7 @@ Route::prefix('barangay')->group(function ()
     Route::post('dashboard', [ProjectController::class, 'post_project'])->name('barangay.post_project');
 });
 
-Route::prefix('goverment')->group(function ()
+Route::prefix('goverment')->middleware('auth')->group(function ()
 {
     Route::get('dashboard', function() {
         return view('goverment.goverment');
