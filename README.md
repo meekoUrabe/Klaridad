@@ -28,10 +28,9 @@ Klaridad is a web platform that transforms raw government data into:
 
 | Feature | What it does |
 |---|---|
-| 📊 Visual Dashboards | Budget breakdowns by barangay, category, and project |
-| 📝 Citizen Reports | Users can submit and publish their own reports |
-| 🔍 Smart Filtering | Search by barangay, category, or status in real time |
-| 🔐 Location-aware Login | Each user sees data scoped to their own barangay |
+| 👁️ See | View government projects, budgets, and spending breakdowns scoped to your barangay |
+| 📍 Track | Monitor project status, timelines, and updates in real time |
+| 📝 Report | Submit community reports, upvote issues, and track their resolution |
 
 ---
 
@@ -90,7 +89,7 @@ can actually understand the information.
 
 ## Transparency Notice: AI Tools Used in Development
 
-GitHub Copilot and Claude were used during development for debugging assistance and bug fixes. All core logic, features, and architecture were designed and implemented by the team. This disclosure is made in accordance with hackathon rules requiring transparency about tool usage.
+Figma/Stitch was used for UI design and prototyping. Claude was used for debugging assistance and bug fixes. All core logic, features, and architecture were designed and implemented by the team. This disclosure is made in accordance with hackathon rules requiring transparency about tool usage.
 
 ---
 
